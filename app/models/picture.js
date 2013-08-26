@@ -16,13 +16,19 @@ var PictureSchema = new Schema({
 
 PictureSchema.statics = {
   
-  search: function( word, options, cb){
-    var searchRegex = new RegExp(word, 'i');
-    this.find({ name: { $regex: searchRegex }})
+  search: function( query, options, cb){
+    var ResultSet = this.find(query)
+    ResultSet
       .sort({'createdAt': -1}) // sort by date
       .limit(options.perPage)
       .skip(options.perPage * options.page)
-      .exec(cb);
+      .select( 'path permalink')
+      .exec(function(err, docs){
+        ResultSet.count(function(err2, count){
+          cb(err, docs, count, count > options.perPage*(options.page+1))
+        })
+      });
+      
   },
   
   fetch: function( word, options, cb){

@@ -40,11 +40,12 @@ var app = express()
 // express settings
 require('./config/express')(app, config, passport)
 
+// Bootstrap API
+require('./app/api/routes')(app, passport)
+
 // Bootstrap routes
 require('./config/routes')(app, passport)
 
-// Bootstrap API
-require('./app/api/routes')(app, passport)
 
 // Start the app by listening on <port>
 var port = process.env.PORT || 5000

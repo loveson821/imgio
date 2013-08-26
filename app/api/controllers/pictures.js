@@ -33,3 +33,27 @@ exports.create = function(req, res){
   })
   */
 }
+
+exports.search = function(req, res){
+  var word = req.param('word') || ''
+  var query = {}
+  query.permalink = new RegExp(word, 'i');
+  
+  var page = (req.param('page') > 0 ? req.param('page') : 1) - 1
+  var perPage = 5
+  var options = {
+    perPage: perPage,
+    page: page
+  }
+
+  Picture.search(query, options, function(err, docs, count, next){
+    if(err){
+      res.send({
+        'success': false, 'error': err
+      })
+    }
+    else{
+      res.send({count: count, next: next, docs: docs})
+    }
+  })
+}

@@ -20,26 +20,6 @@ exports.load = function(req, res, next, id){
   })
 }
 
-exports.search = function(req, res){
-  word = req.params.word || ''
-  var page = (req.param('page') > 0 ? req.param('page') : 1) - 1
-  var perPage = 5
-  var options = {
-    perPage: perPage,
-    page: page
-  }
-
-  Picture.search(word, options, function(err, docs){
-    if(err){
-      res.send({
-        'success': false
-      })
-    }
-    else
-      res.send(docs)
-  })
-}
-
 exports.fetch = function(req, res){
   word = req.params.word || ''
   Picture.fetch(word, {}, function(err, doc){
