@@ -36,7 +36,8 @@
     "underscore": "latest",
     "async": "latest",
     "view-helpers": "latest",
-    "forever": "latest"
+    "forever": "latest",
+    "subdomain": "latest"
   },
   "devDependencies": {
     "supertest": "latest",

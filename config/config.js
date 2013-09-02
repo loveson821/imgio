@@ -22,9 +22,9 @@ module.exports = {
       name: 'Nodejs Express Mongoose Demo'
     },
     facebook: {
-      clientID: "APP_ID",
-      clientSecret: "APP_SECRET",
-      callbackURL: "http://localhost:3000/auth/facebook/callback"
+      clientID: "424193037611931",
+      clientSecret: "65e992c93bc6db62fb90fd9df2762005",
+      callbackURL: "http://localhost:5000/auth/facebook/callback"
     },
     twitter: {
       clientID: "CONSUMER_KEY",

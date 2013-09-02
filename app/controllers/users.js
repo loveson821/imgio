@@ -16,7 +16,10 @@ var login = function (req, res) {
   res.redirect('/')
 }
 
-exports.signin = function (req, res) {}
+exports.signin = function (req, res) {
+
+  console.log( 'signin success ')
+}
 
 /**
  * Auth callback

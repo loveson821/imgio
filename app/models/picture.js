@@ -9,9 +9,11 @@ var mongoose = require('mongoose')
 var PictureSchema = new Schema({
   name: { type: String, default: '' },
   permalink: { type: String, default: ''},
+  shortlink: { type: String, default: ''},
   createdAt: { type: Date, default: Date.now },
   activate: { type: Boolean, default: false},
-  path: { type: String, default: ''}
+  path: { type: String, default: ''},
+  hit: { type: Number, default: 0}
 })
 
 PictureSchema.statics = {
@@ -44,6 +46,6 @@ PictureSchema.statics = {
 
 }
 
-PictureSchema.index({"name":1, "permalink":1, "createdAt": -1, "activate": 1})
+PictureSchema.index({"name":1, "permalink":1, "createdAt": -1, "activate": 1, "hit": -1})
 
 mongoose.model('Picture', PictureSchema)
