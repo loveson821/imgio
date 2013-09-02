@@ -19,9 +19,6 @@ var users = require('../app/controllers/users')
 
 var articleAuth = [auth.requiresLogin, auth.article.hasAuthorization]
 
-// Subdomain 
-var subdomain = require('subdomain');
-
 /**
  * Expose routes
  */
@@ -108,8 +105,7 @@ module.exports = function (app, passport) {
   var pictures = require('../app/controllers/pictures')
   app.get('/:word', pictures.fetch)
 
-  app.use(subdomain({ base : 'cookquery.com', removeWWW : true }));
-  app.get('/subdomain/blog/', function(request, response) {
-    response.end('<p>blog.mydomain.com</p>');
-  });
+  app.get('/io/helloworld', function (req, res) {
+    res.send('io helloworld')
+  })
 }
