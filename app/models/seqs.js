@@ -16,12 +16,21 @@ seqs_schema.statics = {
 		query = {"_id": "urls"}
 		update = {$inc: {"seq":1}}
 		options = {new: true, upsert: true}
-		this.findOneAndUpdate( query, update, options,
-			function(err, data) {
-				shurl = utils.shortener(data.seq);
+		this.collection.findAndModify(query, [], update, options, function(err, data){
+			// var shurl = utils.shortener(data.seq);
+			// cb(shurl)
+			//cb( utils.shortener(data.seq) )
+			// cb(data.seq + '')
+			utils.shortener(data.seq, function(shurl){
 				cb(shurl)
-			}
-		);
+			})
+		});
+		// this.findOneAndUpdate( query, update, options,
+		// 	function(err, data) {
+		// 		var shurl = utils.shortener(data.seq);
+		// 		cb(shurl)
+		// 	}
+		// );
 	}
 }
 

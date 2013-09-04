@@ -1,6 +1,7 @@
-var googl = require('goo.gl');
+Base62 = require('base62')
 
-// Shorten a long url and output the result
-googl.shorten('http://www.google.com/', function (shortUrl) {
-    console.log(shortUrl);
-});
+var i = 1000
+while( i>0 ){
+	i--;
+	console.log( Base62.encode(i));
+}
