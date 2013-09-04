@@ -16,5 +16,8 @@ module.exports = function(app, passport) {
   // app.get('/api/pictures', pictures.index)
   // app.get('/api/picture/:picid', picture.show)
   app.get('/api/search', pictures.search)
+  app.get('/api/recent', pictures.recent)
+  app.get('/api/hotest', pictures.hotest)
+  app.get('/api/hub', pictures.hub)
   // app.param('picid', pictures.picture)
 }

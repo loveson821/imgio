@@ -37,7 +37,8 @@
     "async": "latest",
     "view-helpers": "latest",
     "forever": "latest",
-    "subdomain": "latest"
+    "subdomain": "latest",
+    "goo.gl": "latest"
   },
   "devDependencies": {
     "supertest": "latest",

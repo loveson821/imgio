@@ -101,11 +101,11 @@ module.exports = function (app, passport) {
   // // tag routes
   // var tags = require('../app/controllers/tags')
   // app.get('/tags/:tag', tags.index)
+  var shortener = require('../app/controllers/shortener')
+  app.get('/shortener', shortener.fetch)
 
   var pictures = require('../app/controllers/pictures')
   app.get('/:word', pictures.fetch)
 
-  app.get('/io/helloworld', function (req, res) {
-    res.send('io helloworld')
-  })
+  
 }

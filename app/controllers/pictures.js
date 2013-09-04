@@ -22,8 +22,9 @@ exports.load = function(req, res, next, id){
 
 exports.fetch = function(req, res){
   word = req.params.word || ''
+  word = word.replace(/\.(jpg|gif|png|jpeg)$/,'')
   Picture.fetch(word, {}, function(err, doc){
-    if(err){
+    if(err || !doc){
       res.send({'success': false})
     }
     else{
