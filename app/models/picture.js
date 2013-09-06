@@ -16,6 +16,25 @@ var PictureSchema = new Schema({
   hit: { type: Number, default: 0}
 })
 
+/**
+ * Pre-save hook
+ */
+
+PictureSchema.pre('save', function(next) {
+  if (!this.isNew) return next()
+  var self = this
+  mongoose.model('Picture').nameCount({name: this.name}, function(err, count){
+    if(err) next('Unexpected error when Pre-save')
+    else{
+      if(count>0)
+        self.permalink = self.name + count
+      else
+        self.permalink = self.name
+    }
+    next()
+  })
+})
+
 PictureSchema.statics = {
   
   search: function( query, options, cb){
@@ -43,19 +62,31 @@ PictureSchema.statics = {
       
   },
 
+  nameCount: function(query, cb ){
+    this.count(query, function(err, num){
+      cb(err, num)
+    })
+  },
+
   load: function(id, cb){
     this.findOne({_id: id})
       .exec(cb)
   },
 
   hotest: function(options, cb){
-    this.find().sort('-hit').limit(options.limit).exec(function(err, docs){
+    this.find().sort('-hit')
+    .limit(options.perPage)
+    .skip(options.perPage * options.page)
+    .exec(function(err, docs){
       cb(err, docs)
     })
   },
 
   recent: function(options, cb){
-    this.find().sort('-createdAt').limit(options.limit).exec( function(err, docs ){
+    this.find().sort('-createdAt')
+    .limit(options.perPage)
+    .skip(options.perPage * options.page)
+    .exec( function(err, docs ){
       cb(err,docs)
     })
   },

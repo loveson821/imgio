@@ -1,3 +1,5 @@
+var normalization = require('../../config/middlewares/normalization')
+
 module.exports = function(app, passport) {
   
   // set api header
@@ -19,5 +21,10 @@ module.exports = function(app, passport) {
   app.get('/api/recent', pictures.recent)
   app.get('/api/hotest', pictures.hotest)
   app.get('/api/hub', pictures.hub)
+  app.post('/api/pictures'
+          , normalization.picture.shorturl
+          , normalization.picture.normalize
+          , pictures.create
+          )
   // app.param('picid', pictures.picture)
 }

@@ -3,35 +3,14 @@ var mongoose = require('mongoose')
   , _ = require('underscore')
 
 exports.create = function(req, res){
-  /*
-  var picture = new Picture()
-  picture.name = req.body.name
-  Picture.findOne({'name': req.body.name}).exec(function(err, doc){
+  var picture = new Picture(_.pick(req.body,'name','path','shortlink'))
+
+  picture.save(function(err, pic){
     if(err) res.send({'success': false, 'error': err })
-    else if (!doc){
-      console.log(picture)
-      picture.paths = [ req.body.path ]
-      picture.save(function(err, pic){
-        if(err) res.send({'success': false, 'error': err })
-        else{
-          res.send({'success': true})
-        }
-      })
-    }
     else{
-      if(!_.contains(doc.paths, req.body.path)){
-        doc.paths.append(req.body.path)
-      
-        doc.save(function(err, pic){
-          if(err) res.send({'success': false, 'error': err })
-          else{
-            res.send({'success': true})
-          }
-        })
-      }
+      res.send({'success': true, doc: pic})
     }
   })
-  */
 }
 
 exports.search = function(req, res){
@@ -60,9 +39,11 @@ exports.search = function(req, res){
 
 
 exports.recent = function(req, res){
-  var limit = req.param('limit') || 10
+  var perPage = req.param('count') || 10
+  var page = (req.param('page') > 0 ? req.param('page') : 1) - 1
   var options = {
-    limit: limit
+    perPage: perPage,
+    page: page
   }
 
   Picture.recent(options, function(err, docs){
@@ -78,9 +59,11 @@ exports.recent = function(req, res){
 }
 
 exports.hotest = function(req, res){
-  var limit = req.param('limit') || 10
+  var perPage = req.param('count') || 10
+  var page = (req.param('page') > 0 ? req.param('page') : 1) - 1
   var options = {
-    limit: limit
+    perPage: perPage,
+    page: page
   }
   
   Picture.hotest(options, function(err, docs){

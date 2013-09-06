@@ -43,7 +43,7 @@ module.exports = {
     },
   },
   test: {
-    db: 'mongodb://localhost/imgio',
+    db: 'mongodb://localhost/test_imgio',
     root: rootPath,
     notifier: notifier,
     app: {
