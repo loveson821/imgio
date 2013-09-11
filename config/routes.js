@@ -88,7 +88,8 @@ module.exports = function (app, passport) {
   // app.param('id', articles.load)
 
   // // home route
-  app.get('/', articles.index)
+  var web = require('../app/controllers/web')
+  app.get('/', web.index)
   
   // app.get('/test', function(req, res){
   //   res.redirect('http://cdn.inx.io/uploads/18.jpg')

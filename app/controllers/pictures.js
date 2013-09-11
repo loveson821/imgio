@@ -33,3 +33,4 @@ exports.fetch = function(req, res){
       
   })
 }
+

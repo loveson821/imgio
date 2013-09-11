@@ -102,8 +102,8 @@ PictureSchema.statics = {
         Model.recent( recent_opt, function(err, recents){
           if( err || !recents) cb( err, data)
           else{
-            data.hotest = hotests
-            data.recent = recents
+            data.hotests = hotests
+            data.recents = recents
             cb(err, data)
           }
         })

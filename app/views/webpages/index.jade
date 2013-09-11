@@ -1,0 +1,47 @@
+extends ../layouts/default
+
+block main
+  .page-header
+    .content.clearfix
+      h3#pull-left
+        i.icon-gittip(style='color: #B228AE;')
+        | People recent used
+        span
+      button.pull-right.btn.btn-purple
+        i.icon-th  
+        | More
+
+  - if (recents.length)
+  ul#og-grid.og-grid.clearfix
+    - each picture in recents
+      li
+        a(href='#', data-largesrc=picture.path, data-title='Azuki bean', data-description='Swiss chard pumpkin bunya nuts maize plantain aubergine napa cabbage soko coriander sweet pepper water spinach winter purslane shallot tigernut lentil beetroot.')
+          span.rollover
+          img(src=picture.path, alt='piture.permalink')
+        .title
+          strong= picture.name
+        p.muted.detail
+          | Upload by
+          span ku4ncheang
+
+  .page-header
+    .content.clearfix
+      h3#pull-left
+        i.icon-rocket(style='color: #B228AE;')
+        | Just on the fly
+        span
+      button.pull-right.btn.btn-purple
+        i.icon-th  
+        | More
+
+  - if (recents.length)
+  ul#og-grid.og-grid.clearfix
+    - each picture in hotests
+      li
+        a(href='#', data-largesrc=picture.path, data-title='Azuki bean', data-description='Swiss chard pumpkin bunya nuts maize plantain aubergine napa cabbage soko coriander sweet pepper water spinach winter purslane shallot tigernut lentil beetroot.')
+          img(src=picture.path, alt='piture.permalink')
+        .title
+          strong= picture.name
+        p.muted.detail
+          | Upload by
+          span ku4ncheang

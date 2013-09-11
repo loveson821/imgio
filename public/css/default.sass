@@ -1,0 +1,330 @@
+
+@import "bourbon/bourbon"
+
+
+body, html
+  font-size: 100%
+  padding: 0
+  margin: 0
+  height: 100%
+
+
+body
+  // font-family: 'Lato', Calibri, Arial, sans-serif
+  // background: url(../img/noise.gif)
+  font-weight: 300
+  font-size: 15px
+  color: #333
+  overflow: scroll
+  overflow-x: hidden
+
+body.modal-open
+  margin-right: 0
+
+a
+  color: #f0f0f0
+  text-decoration: none
+  &:hover
+    color: #000
+
+
+div[class="tooltip-inner"]
+  min-width: 160px
+  font-size: 16px
+  font-weight: 400
+
+.main
+
+  color: #333
+  font-weight: 300
+  line-height: 1.5
+  text-align: justify
+
+// .main
+//   padding-top: 60px
+
+.wrapper
+  padding-left: 76px
+  .container
+    max-width: 100%
+    padding: 0
+    width: 100%
+    position: relative
+
+.icon-drop:before, .icon-arrow-left:before
+  font-family: 'fontawesome'
+  position: absolute
+  top: 0
+  width: 100%
+  height: 100%
+  speak: none
+  font-style: normal
+  font-weight: normal
+  line-height: 2
+  text-align: center
+  color: #47a3da
+  -webkit-font-smoothing: antialiased
+  text-indent: 8000px
+  padding-left: 8px
+
+a
+  color: #555
+  text-decoration: none
+
+
+
+
+.main > p
+  text-align: center
+  padding: 50px 20px
+
+
+.btn
+  border-radius: 0
+
+.page-header
+  // background: #f3f3f3
+  @include background-image(linear-gradient(#f9f9f9 0, #f3f3f3 100%))
+  border-top: 1px solid #e3e3e3
+  border-bottom: 1px solid #e3e3e3
+  padding-bottom: 0
+  margin: 0px 0 10px 0
+
+
+  .content
+    padding: 0 20px
+
+    h3
+      display: inline-block
+      margin: 24px 0
+
+      i::after
+        content: " "
+
+    button
+      margin-top: 20px
+
+  span
+    font-weight: normal
+    font-size: 16px
+    color: #999
+
+    &:before
+      content: " "
+
+.btn-purple
+  background: lighten(#67377A, 20%)
+  border-color: #67377A
+  color: #fff
+
+  &:hover
+    color: darken(#fff, 10%)
+    background: darken(#67377A, 2%)
+
+
+
+.og-expander
+  input
+    background: #f3f3f3
+    border: 0px
+    border-radius: 0
+    font-size: 27px
+    height: 48px
+    color: #333
+    text-align: center
+    border-bottom: 1px solid #ddd
+    margin-top: 20px
+    // @include box-shadow(none)
+    box-shadow: none
+
+    &:focus, 
+      border-radius: 0
+      transition: none
+      @include box-shadow(0 0 0px 0px hsla(0, 0%, 0%, 0))
+
+
+  .btn-group
+
+    button
+      width: 50%
+      font-size: 32px
+      padding: 20px
+      height: 120px
+      border-top: 0px
+
+    button:last-child
+      width: 50%
+
+
+
+.overlay
+  padding: 40px 20px
+  position: absolute
+  top: 0
+  height: 100%
+  width: 100%
+  background: rgba(#000, 0.9)
+  z-index: 9999
+  text-align: center
+  color: #fff
+
+  .content
+
+  a
+    max-width: 974px
+    margin: 0 auto
+    display: block
+    padding: 8px
+    border: 1px solid #444
+
+    &:hover
+      border: 1px solid lighten(#67377A, 30%)
+
+    img
+      width: 100%
+
+  table
+    max-width: 974px
+    margin: 0 auto
+    tr
+      &:hover
+        td
+          border: 1px solid lighten(#67377A, 30%)
+          border-right: none
+          @include transition (border-color ease-in-out .15s)
+          pointer: auto
+      td
+        padding: 0
+        border: 1px solid #444
+
+        >div 
+          overflow: hidden
+          height: 30px
+          text-overflow: ellipsis
+          white-space: nowrap
+
+
+      td.clean
+        border: 0px
+      .link
+        border-right: none
+        font-size: 22px
+        padding: 0 20px
+        height: 48px
+        width: 40%
+
+
+
+  button
+    height: 50px
+    display: block
+    width: 100%
+    font-size: 24px
+    border: none
+    background: lighten(#67377A, 10%)
+    color: white
+
+    &:hover
+      background: lighten(#67377A, 5%)
+      color: #fff
+
+
+.form-control
+  border-radius: 0
+  margin-bottom: 6px
+
+  &:focus
+    border: 1px solid #9e60b7
+
+
+.navbar-default
+  background: #fff
+
+.navbar-default .navbar-nav>.active>a
+  background: #fff
+  border-bottom: 2px solid purple
+
+  &:hover
+    background: #fff
+
+.navbar-nav
+
+  >li
+
+
+    >a
+      padding: 34px 15px 18px 15px
+
+
+
+header
+  padding: 0 20px
+  margin-bottom: 40px
+
+  h1
+    margin-top: 45px
+    font-size: 60px
+
+  p
+    font-size: 24px
+    color: #999
+  h3
+    span
+      font-size: 16px
+      color: #999
+      font-weight: normal
+
+
+
+
+footer[role="contentinfo"]
+  padding: 15px 0 0 0
+  font-size: 14px
+  border-top: 1px solid #ddd
+  ul
+    margin: 0
+    padding: 0
+
+  nav ul li
+    display: inline
+    margin: 0 10px 0 0
+    padding: 0 10px 0 0
+    font-weight: bold
+    border-right: 1px solid #ccc
+    &:last-child
+      margin: 0
+      padding: 0
+      border: none
+  p
+    margin: 10px 0
+
+
+.search
+  .bar
+    background: #fff
+    padding-bottom: 0
+    margin-bottom: 10px
+    padding: 0 20px
+    margin-top: 37px
+
+    input
+      position: relative
+      background: rgba(0,0,0,0)
+      border: 0px
+      border-radius: 0
+      // @include box-shadow(none)
+      box-shadow: none
+      font-size: 20px
+      width: 100%
+      padding-top: 15px
+      border-bottom: 1px solid #efefef
+      text-align: center
+      font-weight: 200
+
+      &:focus
+        background: rgba(0,0,0,0)
+        border-radius: 0
+        transition: none
+        // @include box-shadow(0 0 0px 0px hsla(0, 0%, 0%, 0))
+        box-shadow: none
+        border-bottom: 1px solid lighten(#67377A, 40%)

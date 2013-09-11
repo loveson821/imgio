@@ -83,8 +83,8 @@ exports.hub = function(req, res){
   var hotest_limit = req.param('hlimit') || 10
   var recent_limit = req.param('rlimit') || 10
   var options = {
-    hotest: { limit: hotest_limit},
-    recent: { limit: recent_limit}
+    hotest: { perPage: hotest_limit, page: 10},
+    recent: { perPage: recent_limit, page: 10}
   }
   Picture.hub(options, function(err, data){
     if(err){
