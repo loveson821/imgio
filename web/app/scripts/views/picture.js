@@ -26,7 +26,7 @@
       attributes = this.model.toJSON();
       this.$el.html(this.template(attributes));
       this.clip = new ZeroClipboard(this.$('a'), {
-        moviePath: "bower_components/zeroclipboard/ZeroClipboard.swf",
+        moviePath: "scripts/ZeroClipboard.swf",
         forceHandCursor: true
       });
       this.clip.on("dataRequested", function(client, args) {

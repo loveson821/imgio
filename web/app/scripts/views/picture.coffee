@@ -17,7 +17,7 @@ class web.Views.PictureView extends Backbone.View
 		this.$el.html this.template(attributes)
 
 		@clip = new ZeroClipboard( this.$('a'),
-		  moviePath: "bower_components/zeroclipboard/ZeroClipboard.swf"
+		  moviePath: "scripts/ZeroClipboard.swf"
 		  forceHandCursor: true
 		)
 
