@@ -1,0 +1,55 @@
+<nav class="navbar navbar-default  navbar-static-top" role="navigation">            
+	<!-- Brand and toggle get grouped for better mobile display -->
+	<div class="navbar-header">
+	  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex8-collapse">
+	    <span class="sr-only">Toggle navigation</span>
+	    <span class="icon-bar"></span>
+	    <span class="icon-bar"></span>
+	    <span class="icon-bar"></span>
+	  </button>
+	</div>
+
+	<!-- Collect the nav links, forms, and other content for toggling -->
+	<div class="collapse navbar-collapse navbar-ex8-collapse">
+	  <ul class="nav navbar-nav">
+	    <li class="active"><a href="#">Home</a></li>
+	    <li><a href="#">Featured</a></li>
+	    <li><a href="#">Recent</a></li>
+	    <li><a href="#">Newest</a></li>
+	    
+	  </ul>
+	    <ul class="nav navbar-nav pull-right">
+	    <% if(user){ %>
+			<li><a href="#"><%= user.email %></a></li>
+			<li><a href="#" id="logout">Logout</a></li>
+		<% }else{ %>
+	    	<li><a data-toggle="modal" href="#SignInModal">Sign In</a></li>
+	    <% }%>
+	  </ul>
+	</div><!-- /.navbar-collapse -->
+</nav>
+<!-- Modal -->
+<div class="modal fade" id="SignInModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+	<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+	
+	<h4 class="modal-title">Sign In</h4>
+	
+	
+	</div>
+	<form id="signIn-form" role="form">
+	<div class="form-group">
+		<div class="modal-body">
+		<input type="email" class="form-control" id="email" placeholder="Enter email">
+		<input type="password" class="form-control" id="password" placeholder="Password">
+		</div>
+	</div>
+	<div class="divider"></div>
+	<button type="submit" class="btn btn-purple btn-block">Submit</button>
+	</form>
+</div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

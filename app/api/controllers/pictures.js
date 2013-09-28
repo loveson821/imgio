@@ -2,6 +2,21 @@ var mongoose = require('mongoose')
   , Picture = mongoose.model('Picture')
   , _ = require('underscore')
 
+exports.load = function(req, res, next, id){
+  // var User = mongoose.model('User')
+
+  Picture.load(id, function (err, picture) {
+    if (err) return next(err)
+    if (!picture) return next(new Error('not found'))
+    req.picture = picture
+    next()
+  })
+}
+
+exports.show = function(req, res){
+  res.send(req.picture)
+}
+
 exports.create = function(req, res){
   var picture = new Picture(_.pick(req.body,'name','path','shortlink'))
 
@@ -19,7 +34,7 @@ exports.search = function(req, res){
   query.permalink = new RegExp(word, 'i');
   
   var page = (req.param('page') > 0 ? req.param('page') : 1) - 1
-  var perPage = 5
+  var perPage = req.param('count') || 5
   var options = {
     perPage: perPage,
     page: page

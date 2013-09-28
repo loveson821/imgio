@@ -8,12 +8,15 @@ var mongoose = require('mongoose')
   , utils = require('../../lib/utils')
 
 var login = function (req, res) {
+  console.log("aofwiofwio")
   if (req.session.returnTo) {
+    sonsole.log("here")
     res.redirect(req.session.returnTo)
     delete req.session.returnTo
     return
   }
-  res.redirect('/')
+  console.log("login ok")
+  res.send({'info':'login ok'})
 }
 
 exports.signin = function (req, res) {
@@ -69,23 +72,27 @@ exports.session = login
  */
 
 exports.create = function (req, res) {
+
   var user = new User(req.body)
   user.provider = 'local'
-  user.save(function (err) {
-    if (err) {
-      return res.render('users/signup', {
-        errors: utils.errors(err.errors),
-        user: user,
-        title: 'Sign up'
+  user.save(function(err){
+    if(err){
+      res.send({
+        'errors': err.errors,
+        user: user
       })
     }
-
-    // manually login the user once successfully signed up
-    req.logIn(user, function(err) {
-      if (err) return next(err)
-      return res.redirect('/')
-    })
+    else{
+      req.logIn(user, function(err){
+        if( err)
+          res.send( {'success': false, err: error})
+        else
+          res.send( {'success': true})
+      })
+    }
   })
+
+
 }
 
 /**

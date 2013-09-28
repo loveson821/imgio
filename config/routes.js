@@ -26,15 +26,32 @@ var articleAuth = [auth.requiresLogin, auth.article.hasAuthorization]
 module.exports = function (app, passport) {
 
   // // user routes
-  app.get('/login', users.login)
-  app.get('/signup', users.signup)
-  app.get('/logout', users.logout)
+  // app.get('/login', users.login)
+  // app.get('/signup', users.signup)
+  // app.get('/logout', users.logout)
   app.post('/users', users.create)
-  app.post('/users/session',
-    passport.authenticate('local', {
-      failureRedirect: '/login',
-      failureFlash: 'Invalid email or password.'
-    }), users.session)
+  // app.post('/users/session',
+  //   passport.authenticate('local', {
+  //     failureRedirect: '/login',
+  //     failureFlash: 'Invalid email or password.'
+  //   }), users.session)
+
+  app.post('/users/session', function(req, res, next) {
+    passport.authenticate('local', function(err, user, info) {
+      if (err) { return next(err) }
+      if (!user) {
+
+        return res.send({'errors': info.message })
+
+      }
+      req.logIn(user, function(err) {
+        if (err) { return next(err); }
+        return res.send({'success': true, 'user': user});
+        //return res.redirect('/users/' + user.email);
+      });
+    })(req, res, next);
+  });
+
   app.get('/users/:userId', users.show)
   app.get('/auth/facebook',
     passport.authenticate('facebook', {
@@ -88,8 +105,8 @@ module.exports = function (app, passport) {
   // app.param('id', articles.load)
 
   // // home route
-  var web = require('../app/controllers/web')
-  app.get('/', web.index)
+  // var web = require('../app/controllers/web')
+  // app.get('/', web.index)
   
   // app.get('/test', function(req, res){
   //   res.redirect('http://cdn.inx.io/uploads/18.jpg')
@@ -102,6 +119,7 @@ module.exports = function (app, passport) {
   // // tag routes
   // var tags = require('../app/controllers/tags')
   // app.get('/tags/:tag', tags.index)
+  
   var shortener = require('../app/controllers/shortener')
   app.get('/shortener', shortener.fetch)
 

@@ -50,11 +50,11 @@ var validatePresenceOf = function (value) {
 
 // the below 4 validations only apply if you are signing up traditionally
 
-UserSchema.path('name').validate(function (name) {
-  // if you are authenticating by any of the oauth strategies, don't validate
-  if (authTypes.indexOf(this.provider) !== -1) return true
-  return name.length
-}, 'Name cannot be blank')
+// UserSchema.path('name').validate(function (name) {
+//   // if you are authenticating by any of the oauth strategies, don't validate
+//   if (authTypes.indexOf(this.provider) !== -1) return true
+//   return name.length
+// }, 'Name cannot be blank')
 
 UserSchema.path('email').validate(function (email) {
   // if you are authenticating by any of the oauth strategies, don't validate
@@ -91,6 +91,7 @@ UserSchema.path('hashed_password').validate(function (hashed_password) {
  */
 
 UserSchema.pre('save', function(next) {
+  console.log( 'save here')
   if (!this.isNew) return next()
 
   if (!validatePresenceOf(this.password)

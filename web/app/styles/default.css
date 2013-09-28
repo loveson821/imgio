@@ -1,0 +1,374 @@
+/* line 5, default.sass */
+body, html {
+  font-size: 100%;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
+/* line 12, default.sass */
+body {
+  font-weight: 300;
+  font-size: 15px;
+  color: #333333;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+/* line 21, default.sass */
+body.modal-open {
+  margin-right: 0;
+}
+
+/* line 24, default.sass */
+a {
+  color: #f0f0f0;
+  text-decoration: none;
+}
+/* line 27, default.sass */
+a:hover {
+  color: black;
+}
+
+/* line 31, default.sass */
+div[class="tooltip-inner"] {
+  min-width: 160px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+/* line 36, default.sass */
+.main {
+  color: #333333;
+  font-weight: 300;
+  line-height: 1.5;
+  text-align: justify;
+}
+
+/* line 46, default.sass */
+.wrapper {
+  padding-left: 76px;
+}
+/* line 48, default.sass */
+.wrapper .container {
+  max-width: 100%;
+  padding: 0;
+  width: 100%;
+  position: relative;
+}
+
+/* line 54, default.sass */
+.icon-drop:before, .icon-arrow-left:before {
+  font-family: "fontawesome";
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 2;
+  text-align: center;
+  color: #47a3da;
+  -webkit-font-smoothing: antialiased;
+  text-indent: 8000px;
+  padding-left: 8px;
+}
+
+/* line 70, default.sass */
+a {
+  color: #555555;
+  text-decoration: none;
+}
+
+/* line 77, default.sass */
+.main > p {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+/* line 82, default.sass */
+.btn {
+  border-radius: 0;
+}
+
+/* line 85, default.sass */
+.page-header {
+  background-image: -webkit-linear-gradient( #f9f9f9 0, #f3f3f3 100%);
+  background-image: linear-gradient( #f9f9f9 0, #f3f3f3 100%);
+  border-top: 1px solid #e3e3e3;
+  border-bottom: 1px solid #e3e3e3;
+  padding-bottom: 0;
+  margin: 0px 0 10px 0;
+}
+/* line 94, default.sass */
+.page-header .content {
+  padding: 0 20px;
+}
+/* line 97, default.sass */
+.page-header .content h3 {
+  display: inline-block;
+  margin: 24px 0;
+}
+/* line 101, default.sass */
+.page-header .content h3 i::after {
+  content: " ";
+}
+/* line 104, default.sass */
+.page-header .content button {
+  margin-top: 20px;
+}
+/* line 107, default.sass */
+.page-header span {
+  font-weight: normal;
+  font-size: 16px;
+  color: #999999;
+}
+/* line 112, default.sass */
+.page-header span:before {
+  content: " ";
+}
+
+/* line 115, default.sass */
+.btn-purple {
+  background: #9e60b7;
+  border-color: #67377a;
+  color: white;
+}
+/* line 120, default.sass */
+.btn-purple:hover {
+  color: #e6e6e6;
+  background: #613473;
+}
+
+/* line 127, default.sass */
+.og-expander input {
+  background: #f3f3f3;
+  border: 0px;
+  border-radius: 0;
+  font-size: 27px;
+  height: 48px;
+  color: #333333;
+  text-align: center;
+  border-bottom: 1px solid #dddddd;
+  margin-top: 20px;
+  box-shadow: none;
+}
+/* line 140, default.sass */
+.og-expander input:focus {
+  border-radius: 0;
+  transition: none;
+  box-shadow: 0 0 0px 0px rgba(0, 0, 0, 0);
+}
+/* line 148, default.sass */
+.og-expander .btn-group button {
+  width: 50%;
+  font-size: 32px;
+  padding: 20px;
+  height: 120px;
+  border-top: 0px;
+}
+/* line 155, default.sass */
+.og-expander .btn-group button:last-child {
+  width: 50%;
+}
+
+/* line 160, default.sass */
+.overlay {
+  padding: 40px 20px;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 9999;
+  text-align: center;
+  color: white;
+}
+/* line 173, default.sass */
+.overlay a {
+  max-width: 974px;
+  margin: 0 auto;
+  display: block;
+  padding: 8px;
+  border: 1px solid #444444;
+}
+/* line 180, default.sass */
+.overlay a:hover {
+  border: 1px solid #b483c7;
+}
+/* line 183, default.sass */
+.overlay a img {
+  width: 100%;
+}
+/* line 186, default.sass */
+.overlay table {
+  max-width: 974px;
+  margin: 0 auto;
+}
+/* line 191, default.sass */
+.overlay table tr:hover td {
+  border: 1px solid #b483c7;
+  border-right: none;
+  -webkit-transition: border-color ease-in-out 0.15s;
+  -moz-transition: border-color ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s;
+  pointer: auto;
+}
+/* line 196, default.sass */
+.overlay table tr td {
+  padding: 0;
+  border: 1px solid #444444;
+}
+/* line 200, default.sass */
+.overlay table tr td > div {
+  overflow: hidden;
+  height: 30px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/* line 207, default.sass */
+.overlay table tr td.clean {
+  border: 0px;
+}
+/* line 209, default.sass */
+.overlay table tr .link {
+  border-right: none;
+  font-size: 22px;
+  padding: 0 20px;
+  height: 48px;
+  width: 40%;
+}
+/* line 218, default.sass */
+.overlay button {
+  height: 50px;
+  display: block;
+  width: 100%;
+  font-size: 24px;
+  border: none;
+  background: #85479d;
+  color: white;
+}
+/* line 227, default.sass */
+.overlay button:hover {
+  background: #763f8c;
+  color: white;
+}
+
+/* line 232, default.sass */
+.form-control {
+  border-radius: 0;
+  margin-bottom: 6px;
+}
+/* line 236, default.sass */
+.form-control:focus {
+  border: 1px solid #9e60b7;
+}
+
+/* line 240, default.sass */
+.navbar-default {
+  background: white;
+}
+
+/* line 243, default.sass */
+.navbar-default .navbar-nav > .active > a {
+  background: white;
+  border-bottom: 2px solid purple;
+}
+/* line 247, default.sass */
+.navbar-default .navbar-nav > .active > a:hover {
+  background: white;
+}
+
+/* line 255, default.sass */
+.navbar-nav > li > a {
+  padding: 34px 15px 18px 15px;
+}
+
+/* line 260, default.sass */
+header {
+  padding: 0 20px;
+  margin-bottom: 40px;
+}
+/* line 264, default.sass */
+header h1 {
+  margin-top: 45px;
+  font-size: 60px;
+}
+/* line 268, default.sass */
+header p {
+  font-size: 24px;
+  color: #999999;
+}
+/* line 272, default.sass */
+header h3 span {
+  font-size: 16px;
+  color: #999999;
+  font-weight: normal;
+}
+
+/* line 280, default.sass */
+footer[role="contentinfo"] {
+  padding: 15px 0 0 0;
+  font-size: 14px;
+  border-top: 1px solid #dddddd;
+}
+/* line 284, default.sass */
+footer[role="contentinfo"] ul {
+  margin: 0;
+  padding: 0;
+}
+/* line 288, default.sass */
+footer[role="contentinfo"] nav ul li {
+  display: inline;
+  margin: 0 10px 0 0;
+  padding: 0 10px 0 0;
+  font-weight: bold;
+  border-right: 1px solid #cccccc;
+}
+/* line 294, default.sass */
+footer[role="contentinfo"] nav ul li:last-child {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+/* line 298, default.sass */
+footer[role="contentinfo"] p {
+  margin: 10px 0;
+}
+
+/* line 303, default.sass */
+.search .bar {
+  background: white;
+  padding-bottom: 0;
+  margin-bottom: 10px;
+  padding: 0 20px;
+  margin-top: 37px;
+  min-height: 480px;
+}
+/* line 311, default.sass */
+.search .bar input {
+  position: relative;
+  background: rgba(0, 0, 0, 0);
+  border: 0px;
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 20px;
+  width: 100%;
+  padding-top: 15px;
+  border-bottom: 1px solid #efefef;
+  text-align: center;
+  font-weight: 200;
+}
+/* line 325, default.sass */
+.search .bar input:focus {
+  background: rgba(0, 0, 0, 0);
+  border-radius: 0;
+  transition: none;
+  box-shadow: none;
+  border-bottom: 1px solid #c9a6d7;
+}
+/* line 334, default.sass */
+.search .bar input[type="text"]:focus {
+  outline: 0 none;
+}

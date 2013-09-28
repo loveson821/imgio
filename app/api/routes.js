@@ -21,10 +21,12 @@ module.exports = function(app, passport) {
   app.get('/api/recent', pictures.recent)
   app.get('/api/hotest', pictures.hotest)
   app.get('/api/hub', pictures.hub)
+
+  app.get('/api/pictures/:picid', pictures.show)
   app.post('/api/pictures'
           , normalization.picture.shorturl
           , normalization.picture.normalize
           , pictures.create
           )
-  // app.param('picid', pictures.picture)
+  app.param('picid', pictures.load)
 }

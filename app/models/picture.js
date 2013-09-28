@@ -43,7 +43,7 @@ PictureSchema.statics = {
       .sort({'createdAt': -1}) // sort by date
       .limit(options.perPage)
       .skip(options.perPage * options.page)
-      .select( 'path permalink')
+      // .select( 'path permalink shortlink name')
       .exec(function(err, docs){
         ResultSet.count(function(err2, count){
           cb(err, docs, count, count > options.perPage*(options.page+1))
