@@ -164,7 +164,7 @@ $.fn.imagesLoaded = function( callback ) {
 var Grid = (function() {
 
 		// list of items
-	var $grid = $('ul#og-grid'),
+	var $grid = $('ul.og-grid'),
 
 		// the items
 		$items = $grid.children( 'li' ),
@@ -201,6 +201,11 @@ var Grid = (function() {
 
 	function init( config ) {
 
+		$grid = $('ul.og-grid');
+
+		// the items
+		$items = $grid.children( 'li' );
+
 		// the settings..
 		settings = $.extend( true, {}, settings, config );
 
@@ -217,6 +222,8 @@ var Grid = (function() {
 
 		} );
 
+		console.log($grid);
+		console.log($items);
 		layoutItems();
 
 		$(window).resize(function() {

@@ -16,6 +16,8 @@ class web.Views.PicturesView extends Backbone.View
 
 	render: ->
 		@collection.forEach @addOne, this
+		Grid.init()
+		console.log("fuck")
 
 	addOne: (item)->
 		pictureView = new web.Views.PictureView model: item
