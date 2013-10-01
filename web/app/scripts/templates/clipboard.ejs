@@ -1,0 +1,42 @@
+<div class="modal fade" id="clipboardModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+<div class="overlay">
+	<div class="content">
+		<a class="clearfix"><img src="<%= path %>"></img>
+		</a>
+		<h4 class=""><%= name %>.jpg</h4>
+
+		<ul class="text-left">
+			<li>
+				<h4>Short link</h4>
+				<a id="a-short-link" data-clipboard-text="<%= path %>">
+					<%= path %>
+					<div class="copy-overlay">
+						<p>Copy to clipboard</p>
+					</div>
+				</a>
+			</li>
+			<li>
+				<h4>Blogger, Forum link</h4>
+				<a id="a-blog-fourm" data-clipboard-text="[img]<%= path %>[/img]">
+					[img]<%= path %>[/img]
+					<div class="copy-overlay">
+						<p>Copy to clipboard</p>
+					</div>
+				</a>
+			</li>
+			<li>
+				<h4>HTML Image Tag</h4>
+				<a id="a-html-tag" data-clipboard-text="&lt;img src=&quot;<%= path %>&quot; &#47;&gt;">
+					&lt;img src=&quot;<%= path %>&quot; &#47;&gt;
+					<div class="copy-overlay">
+						<p>Copy to clipboard</p>
+					</div>
+				</a>
+			</li>
+		</ul>
+	</div>
+
+</div>
+
+</div><!-- /.modal -->

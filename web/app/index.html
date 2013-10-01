@@ -31,13 +31,15 @@
         <div class="wrapper">
             <div class="container">
                 <div class="main">
-
-                    <div id="tobe-nav"></div>
-                    <header id="signUpPanel" class="row"></header>
+                    <div id="clipboard"></div>
+                    
 
                     <button id="pt-button" class="pt-touch-button">Show next page transition</button>
                     <div id="pt-main" class="pt-perspective">
-                        <div class="pt-page pt-page-you">
+
+                        <div class="pt-page pt-page-home">
+                            <div id="tobe-nav"></div>
+                            <header id="signUpPanel" class="clearfix"></header>
                             <div id="recents-tpl"></div>
                             <div id="hotests-tpl"></div>
                             <footer role="contentinfo" class="text-center">
@@ -51,7 +53,7 @@
                                 <p>Copyright © 2013 Friday Creation Ltd. All rights reserved.</p>
                             </footer>           
                         </div>
-                        <div class="pt-page pt-page-fuck">
+                        <div class="pt-page pt-page-search">
                             <div id = "search-tpl" class="search">
 
                                 
@@ -66,29 +68,7 @@
             </div>
         </div>
 
-      <!-- Modal -->
-      <div class="modal fade" id="shareModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-              <h4 class="modal-title">Share dialogue image</h4>
-            </div>
-            <div class="modal-body">
-              <div class="form-group">
-                        <label for="shareImageURL">Image url</label>
-                        <input type="text" class="form-control" id="shareImageURL" placeholder="http://example.com/image.jpg">
-                        <p class="help-block">sosad</p>
-                      </div>
-            </div>
-            </p>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-              <button type="button" class="btn btn-purple">Share</button>
-            </div>
-          </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-      </div><!-- /.modal -->
+        
 
       
 
@@ -99,7 +79,7 @@
         <!-- build:js scripts/vendor.js -->
         <script src="bower_components/jquery/jquery.js"></script>
         <script src="bower_components/jquery.cookie/jquery.cookie.js"></script>
-        <script src="bower_components/zeroclipboard/Zeroclipboard.min.js"></script>
+        <script src="js/ZeroClipboard.custom.js"></script>
         <script src="js/pageTransition.js"></script>
         <script src="bower_components/underscore/underscore.js"></script>
         <script src="bower_components/backbone/backbone.js"></script>
@@ -113,7 +93,6 @@
         <script src="scripts/models/picture.js"></script>
 
         <script src="scripts/collections/picture.js"></script>
-        <script src="scripts/routes/picture.js"></script>
         <script src="scripts/views/picture.js"></script>
         <script src="scripts/views/pictures.js"></script>
         <script src="scripts/models/Session.js"></script>
@@ -123,6 +102,9 @@
         <script src="scripts/views/sidebar.js"></script>
         <script src="scripts/views/search.js"></script>
         <script src="scripts/collections/search.js"></script>
+        <script src="scripts/routes/Web.js"></script>
+        <script src="scripts/views/footer.js"></script>
+        <script src="scripts/views/clipboard.js"></script>
         <!-- endbuild -->
 </body>
 </html>

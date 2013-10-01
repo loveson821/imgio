@@ -4,8 +4,7 @@ var PageTransitions = (function() {
 		$pages = $main.children( 'div.pt-page' ),
 		$iterate = $( '#pt-button' ),
 		animcursor = 21,
-    np = 'you',
-    cp = 'fuck',
+	    currentname = 'home',
 		pagesCount = $pages.length,
 		current = 0,
 		isAnimating = false,
@@ -32,53 +31,37 @@ var PageTransitions = (function() {
 		$pages.eq( current ).addClass( 'pt-page-current' );
 
 		$iterate.on( 'click', function(e, param) {
-			console.log( param )
+
+			// Return if current page is the next page
+			if(param == currentname)
+				return
+
 			if( isAnimating ) {
 				return false;
 			}
 			if( animcursor > 67 ) {
 				animcursor = 1;
 			}
-      if(cp == 'fuck'){
-        cp = 'you'
-        np = 'fuck'
-      }else{
-        np = 'you'
-        cp = 'fuck'
-      }
       
-			nextPage( animcursor );
+			nextPage( animcursor, param );
 			// ++animcursor;
 		} );
 
 	}
 
-	function nextPage( animation ) {
+	function nextPage( animation, name ) {
 
 		if( isAnimating ) {
 			return false;
 		}
 
-		isAnimating = true;
-		
-    // console.log( 'cp: ' + cp);
-    // console.log( 'np: ' + np);
+		isAnimating = true;    
     
-    
-		var $currPage = $('.pt-page-'+cp)
-    // console.log( 'currpage: ' + $currPage )
-    //var $currPage = $('#pt-page-'+pagename)
-    //$currPage.removeClass('pt-page-current')
+		// var $currPage = $('.pt-page-'+name)
+		var $currPage = $('.pt-page-'+currentname);
 
-		if( current < pagesCount - 1 ) {
-			++current;
-		}
-		else {
-			current = 0;
-		}
-
-		//var $nextPage = $pages.eq( current ).addClass( 'pt-page-current' ),
-    var $nextPage = $('.pt-page-'+np).addClass( 'pt-page-current');
+	    var $nextPage = $('.pt-page-'+name).addClass( 'pt-page-current');
+	    currentname = name;
 		var	outClass = '', inClass = '';
 
 		switch( animation ) {
@@ -383,6 +366,7 @@ var PageTransitions = (function() {
 		resetPage( $outpage, $inpage );
 		isAnimating = false;
 		$outpage.hide()
+
 	}
 
 	function resetPage( $outpage, $inpage ) {

@@ -158,75 +158,79 @@ a
 
 
 .overlay
-  padding: 40px 20px
-  position: absolute
-  top: 0
-  height: 100%
-  width: 100%
-  background: rgba(#000, 0.9)
-  z-index: 9999
+  padding: 20px 20px
+  // position: fixed
+  // / position: absolute
+  // / top: 0
+  // / bottom: -50px
+  // / left: 150px
+  margin-left: auto
+  margin-right: auto
+  width: 80%
+  background: rgba(#f3f3f3, 1)
+  z-index: 1003
   text-align: center
-  color: #fff
+  color: #333
 
-  .content
+  img
+    max-height: 340px
 
   a
-    max-width: 974px
     margin: 0 auto
     display: block
     padding: 8px
-    border: 1px solid #444
+    border: 1px solid #ddd
+    background: white
+    text-decoration: none
+    cursor: pointer
+    overflow: hidden
 
     &:hover
-      border: 1px solid lighten(#67377A, 30%)
+      +box-shadow(0 0 2px 0px rgba(#000, 0.15))
 
     img
       width: 100%
+      max-width: 640px
 
-  table
-    max-width: 974px
+  ul
+    padding: 0
+    list-style: none
     margin: 0 auto
-    tr
+    margin-top: 40px
+
+    li
+      margin-bottom: 20px
+
+    li > a
+      cursor: pointer
+      background: white
+      font-size: 18px
+      padding: 16px 12px
+      position: relative
+
+      .copy-overlay
+        position: absolute
+        top: 0
+        bottom: 0
+        left: 0
+        right: 0
+        height: 100%
+        background: rgba(#67377A, 0.9)
+        text-align: center
+        opacity: 0
+        +transition(opacity, .3s)
+
+        p
+          font-size: 18px
+          padding: 14px 0px
+          color: white
+          font-weight: bold
+          
+          
+
       &:hover
-        td
-          border: 1px solid lighten(#67377A, 30%)
-          border-right: none
-          @include transition (border-color ease-in-out .15s)
-          pointer: auto
-      td
-        padding: 0
-        border: 1px solid #444
-
-        >div 
-          overflow: hidden
-          height: 30px
-          text-overflow: ellipsis
-          white-space: nowrap
-
-
-      td.clean
-        border: 0px
-      .link
-        border-right: none
-        font-size: 22px
-        padding: 0 20px
-        height: 48px
-        width: 40%
-
-
-
-  button
-    height: 50px
-    display: block
-    width: 100%
-    font-size: 24px
-    border: none
-    background: lighten(#67377A, 10%)
-    color: white
-
-    &:hover
-      background: lighten(#67377A, 5%)
-      color: #fff
+        .copy-overlay
+          opacity: 1
 
 
 .form-control
@@ -335,3 +339,19 @@ footer[role="contentinfo"]
         // border-color: rgba(126, 239, 104, 0.8)
         // box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(126, 239, 104, 0.6)
         outline: 0 none
+
+ 
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px)
+ 
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px)
+  .overlay
+    ul > li > a
+      font-size: 16px
+
+@media (max-width: 480px)
+  .overlay
+    ul > li > a
+      font-size: 100%
+

@@ -222,8 +222,6 @@ var Grid = (function() {
 
 		} );
 
-		console.log($grid);
-		console.log($items);
 		layoutItems();
 
 		$(window).resize(function() {

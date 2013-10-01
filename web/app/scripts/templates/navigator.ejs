@@ -13,9 +13,9 @@
 	<div class="collapse navbar-collapse navbar-ex8-collapse">
 	  <ul class="nav navbar-nav">
 	    <li class="active"><a href="#">Home</a></li>
-	    <li><a href="#">Featured</a></li>
-	    <li><a href="#">Recent</a></li>
-	    <li><a href="#">Newest</a></li>
+	    <li class="featured-menu"><a href="#featured" >Featured</a></li>
+	    <li class="recent-menu"><a href="#recents" >Recent</a></li>
+	    <li class="newest-menu"><a href="#newest" >Newest</a></li>
 	    
 	  </ul>
 	    <ul class="nav navbar-nav pull-right">
@@ -23,7 +23,7 @@
 			<li><a href="#"><%= user.email %></a></li>
 			<li><a href="#" id="logout">Logout</a></li>
 		<% }else{ %>
-	    	<li><a data-toggle="modal" href="#SignInModal">Sign In</a></li>
+	    	<li><a data-toggle="modal" href="#SignInModal" data-bypass>Sign In</a></li>
 	    <% }%>
 	  </ul>
 	</div><!-- /.navbar-collapse -->

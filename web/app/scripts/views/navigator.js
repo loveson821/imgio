@@ -60,6 +60,13 @@
       return this.model.logout();
     };
 
+    NavigatorView.prototype.selectMenuItem = function(menuItem) {
+      $(".nav li").removeClass("active");
+      if (menuItem) {
+        return $("." + menuItem).addClass("active");
+      }
+    };
+
     return NavigatorView;
 
   })(Backbone.View);

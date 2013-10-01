@@ -17,11 +17,10 @@ class web.Views.PicturesView extends Backbone.View
 	render: ->
 		@collection.forEach @addOne, this
 		Grid.init()
-		console.log("fuck")
 
 	addOne: (item)->
 		pictureView = new web.Views.PictureView model: item
-		$('#'+@name).prepend pictureView.render().el
+		$('#'+@name).append pictureView.render().el
 
 	renderFrame: ->
 		this.$el.html this.template( name: @name )
@@ -29,3 +28,6 @@ class web.Views.PicturesView extends Backbone.View
 
 	loadMore: ->
 		this.collection.loadMore()
+
+	clear: ->
+		@$el.html ''

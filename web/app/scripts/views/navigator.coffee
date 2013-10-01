@@ -40,3 +40,7 @@ class web.Views.NavigatorView extends Backbone.View
 	logout: (e)->
 		e.preventDefault()
 		@model.logout()
+
+	selectMenuItem: (menuItem) ->
+	    $(".nav li").removeClass "active"
+	    $("." + menuItem).addClass "active"  if menuItem

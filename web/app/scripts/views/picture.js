@@ -25,31 +25,14 @@
       that = this;
       attributes = this.model.toJSON();
       this.$el.html(this.template(attributes));
-      this.clip = new ZeroClipboard(this.$('a'), {
-        moviePath: "scripts/ZeroClipboard.swf",
-        forceHandCursor: true
-      });
-      this.clip.on("dataRequested", function(client, args) {
-        return client.setText(args.text);
-      });
-      this.clip.on('mousedown', function(client, args) {
-        return that.clipmousedown();
-      });
       return this;
     };
 
     PictureView.prototype.imgClick = function(e) {
       e.preventDefault();
-      return alert('Please install flash for copy the link');
-    };
-
-    PictureView.prototype.clipmousedown = function() {
-      return new web.Views.AlertView({
-        alert: 'info',
-        fixed: true,
-        title: 'Copied!!',
-        message: 'pasted to clipboard'
-      }).flash();
+      web.clipboard.setModel(this.model);
+      web.clipboard.render();
+      return web.clipboard.show();
     };
 
     return PictureView;

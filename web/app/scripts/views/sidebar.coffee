@@ -5,15 +5,39 @@ class web.Views.SidebarView extends Backbone.View
 
 	events:
 		'click .icon-search': 'loadSearchPage'
+		'click .icon-logo': 'loadHomePage'
+		submit: 'shareImage'
+
+	initialize: ->
+		@ptButton = $('#pt-button')
+		console.log  'no pt-button' if not @ptButton
+
+		@pictureModel = null
 
 	render: ->
 		this.$el.html this.template()
 
 	loadSearchPage: (e)->
 		e.preventDefault()
-		ptButton = $('#pt-button')
-		if ptButton
-			ptButton.trigger 'click', ['test param']
-		else
-			alert 'loadSearchPage'
+		@ptButton.trigger 'click', ['search']
 
+	loadHomePage: (e)->
+		e.preventDefault()
+		@ptButton.trigger 'click', ['home']
+
+	shareImage: (e)->
+		e.preventDefault()
+		body = {}
+		body.path = $("#shareImageURL").val()
+		body.name = $('#shareImageName').val()
+		@pictureModel = new web.Models.PictureModel if not @pictureModel
+
+		@pictureModel.save body,
+			success: (model, response, options)->
+				$('#shareModal').modal 'hide'
+				new web.Views.AlertView(
+			  		alert: 'success'
+			  		fixed: true
+			  		title: '!!'
+			  		message: 'Shared image '+body.name
+			  	).flash()

@@ -63,3 +63,8 @@
 .pt-touch-button {
   visibility: hidden;
 }
+
+/* line 56, main.sass */
+.zeroclipboard-is-hover {
+  background: black;
+}

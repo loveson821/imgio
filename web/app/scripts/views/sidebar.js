@@ -15,7 +15,17 @@
     SidebarView.prototype.template = JST['app/scripts/templates/sidebar.ejs'];
 
     SidebarView.prototype.events = {
-      'click .icon-search': 'loadSearchPage'
+      'click .icon-search': 'loadSearchPage',
+      'click .icon-logo': 'loadHomePage',
+      submit: 'shareImage'
+    };
+
+    SidebarView.prototype.initialize = function() {
+      this.ptButton = $('#pt-button');
+      if (!this.ptButton) {
+        console.log('no pt-button');
+      }
+      return this.pictureModel = null;
     };
 
     SidebarView.prototype.render = function() {
@@ -23,14 +33,35 @@
     };
 
     SidebarView.prototype.loadSearchPage = function(e) {
-      var ptButton;
       e.preventDefault();
-      ptButton = $('#pt-button');
-      if (ptButton) {
-        return ptButton.trigger('click', ['test param']);
-      } else {
-        return alert('loadSearchPage');
+      return this.ptButton.trigger('click', ['search']);
+    };
+
+    SidebarView.prototype.loadHomePage = function(e) {
+      e.preventDefault();
+      return this.ptButton.trigger('click', ['home']);
+    };
+
+    SidebarView.prototype.shareImage = function(e) {
+      var body;
+      e.preventDefault();
+      body = {};
+      body.path = $("#shareImageURL").val();
+      body.name = $('#shareImageName').val();
+      if (!this.pictureModel) {
+        this.pictureModel = new web.Models.PictureModel;
       }
+      return this.pictureModel.save(body, {
+        success: function(model, response, options) {
+          $('#shareModal').modal('hide');
+          return new web.Views.AlertView({
+            alert: 'success',
+            fixed: true,
+            title: '!!',
+            message: 'Shared image ' + body.name
+          }).flash();
+        }
+      });
     };
 
     return SidebarView;

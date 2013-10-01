@@ -12,18 +12,54 @@ __p += '<div class="alert alert-error">\n<a href="#" class="close">&times;</a>\n
 return __p
 };
 
+this["JST"]["app/scripts/templates/clipboard.ejs"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape;
+with (obj) {
+__p += '<div class="modal fade" id="clipboardModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">\n\n<div class="overlay">\n\t<div class="content">\n\t\t<a class="clearfix"><img src="' +
+((__t = ( path )) == null ? '' : __t) +
+'"></img>\n\t\t</a>\n\t\t<h4 class="">' +
+((__t = ( name )) == null ? '' : __t) +
+'.jpg</h4>\n\n\t\t<ul class="text-left">\n\t\t\t<li>\n\t\t\t\t<h4>Short link</h4>\n\t\t\t\t<a id="a-short-link" data-clipboard-text="' +
+((__t = ( path )) == null ? '' : __t) +
+'">\n\t\t\t\t\t' +
+((__t = ( path )) == null ? '' : __t) +
+'\n\t\t\t\t\t<div class="copy-overlay">\n\t\t\t\t\t\t<p>Copy to clipboard</p>\n\t\t\t\t\t</div>\n\t\t\t\t</a>\n\t\t\t</li>\n\t\t\t<li>\n\t\t\t\t<h4>Blogger, Forum link</h4>\n\t\t\t\t<a id="a-blog-fourm" data-clipboard-text="[img]' +
+((__t = ( path )) == null ? '' : __t) +
+'[/img]">\n\t\t\t\t\t[img]' +
+((__t = ( path )) == null ? '' : __t) +
+'[/img]\n\t\t\t\t\t<div class="copy-overlay">\n\t\t\t\t\t\t<p>Copy to clipboard</p>\n\t\t\t\t\t</div>\n\t\t\t\t</a>\n\t\t\t</li>\n\t\t\t<li>\n\t\t\t\t<h4>HTML Image Tag</h4>\n\t\t\t\t<a id="a-html-tag" data-clipboard-text="&lt;img src=&quot;' +
+((__t = ( path )) == null ? '' : __t) +
+'&quot; &#47;&gt;">\n\t\t\t\t\t&lt;img src=&quot;' +
+((__t = ( path )) == null ? '' : __t) +
+'&quot; &#47;&gt;\n\t\t\t\t\t<div class="copy-overlay">\n\t\t\t\t\t\t<p>Copy to clipboard</p>\n\t\t\t\t\t</div>\n\t\t\t\t</a>\n\t\t\t</li>\n\t\t</ul>\n\t</div>\n\n</div>\n\n</div><!-- /.modal -->';
+
+}
+return __p
+};
+
+this["JST"]["app/scripts/templates/footer.ejs"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape;
+with (obj) {
+__p += '<p>Your content here.</p>\n\n';
+
+}
+return __p
+};
+
 this["JST"]["app/scripts/templates/navigator.ejs"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape, __j = Array.prototype.join;
 function print() { __p += __j.call(arguments, '') }
 with (obj) {
-__p += '<nav class="navbar navbar-default  navbar-static-top" role="navigation">            \n\t<!-- Brand and toggle get grouped for better mobile display -->\n\t<div class="navbar-header">\n\t  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex8-collapse">\n\t    <span class="sr-only">Toggle navigation</span>\n\t    <span class="icon-bar"></span>\n\t    <span class="icon-bar"></span>\n\t    <span class="icon-bar"></span>\n\t  </button>\n\t</div>\n\n\t<!-- Collect the nav links, forms, and other content for toggling -->\n\t<div class="collapse navbar-collapse navbar-ex8-collapse">\n\t  <ul class="nav navbar-nav">\n\t    <li class="active"><a href="#">Home</a></li>\n\t    <li><a href="#">Featured</a></li>\n\t    <li><a href="#">Recent</a></li>\n\t    <li><a href="#">Newest</a></li>\n\t    \n\t  </ul>\n\t    <ul class="nav navbar-nav pull-right">\n\t    ';
+__p += '<nav class="navbar navbar-default  navbar-static-top" role="navigation">            \n\t<!-- Brand and toggle get grouped for better mobile display -->\n\t<div class="navbar-header">\n\t  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex8-collapse">\n\t    <span class="sr-only">Toggle navigation</span>\n\t    <span class="icon-bar"></span>\n\t    <span class="icon-bar"></span>\n\t    <span class="icon-bar"></span>\n\t  </button>\n\t</div>\n\n\t<!-- Collect the nav links, forms, and other content for toggling -->\n\t<div class="collapse navbar-collapse navbar-ex8-collapse">\n\t  <ul class="nav navbar-nav">\n\t    <li class="active"><a href="#">Home</a></li>\n\t    <li class="featured-menu"><a href="#featured" >Featured</a></li>\n\t    <li class="recent-menu"><a href="#recents" >Recent</a></li>\n\t    <li class="newest-menu"><a href="#newest" >Newest</a></li>\n\t    \n\t  </ul>\n\t    <ul class="nav navbar-nav pull-right">\n\t    ';
  if(user){ ;
 __p += '\n\t\t\t<li><a href="#">' +
 ((__t = ( user.email )) == null ? '' : __t) +
 '</a></li>\n\t\t\t<li><a href="#" id="logout">Logout</a></li>\n\t\t';
  }else{ ;
-__p += '\n\t    \t<li><a data-toggle="modal" href="#SignInModal">Sign In</a></li>\n\t    ';
+__p += '\n\t    \t<li><a data-toggle="modal" href="#SignInModal" data-bypass>Sign In</a></li>\n\t    ';
  };
 __p += '\n\t  </ul>\n\t</div><!-- /.navbar-collapse -->\n</nav>\n<!-- Modal -->\n<div class="modal fade" id="SignInModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">\n<div class="modal-dialog">\n<div class="modal-content">\n\t<div class="modal-header">\n\t<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n\n\t\n\t<h4 class="modal-title">Sign In</h4>\n\t\n\t\n\t</div>\n\t<form id="signIn-form" role="form">\n\t<div class="form-group">\n\t\t<div class="modal-body">\n\t\t<input type="email" class="form-control" id="email" placeholder="Enter email">\n\t\t<input type="password" class="form-control" id="password" placeholder="Password">\n\t\t</div>\n\t</div>\n\t<div class="divider"></div>\n\t<button type="submit" class="btn btn-purple btn-block">Submit</button>\n\t</form>\n</div><!-- /.modal-content -->\n</div><!-- /.modal-dialog -->\n</div><!-- /.modal -->';
 
@@ -86,7 +122,7 @@ this["JST"]["app/scripts/templates/sidebar.ejs"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<ul class="cbp-vimenu">\n    <li>\n        <a href="#" class="icon icon-logo">Logo</a>\n    </li>\n    <li>\n        <a data-toggle="modal" href="#shareModal" rel="tooltip" class="icon-share-alt" data-placement="right" title="Share dialogue image"></a>\n    </li>\n    <li>\n        <a href="search.html" class="icon-search" rel="tooltip" data-toggle="tooltip" data-placement="right" title="Search image" data-original-title="Tooltip on right"></a>\n    </li>\n    <li>\n        <a href="#" class="icon-picture" rel="tooltip" data-toggle="tooltip" data-placement="right" title="" data-original-title="Browse"></a>\n    </li>\n    <!-- <li class="cbp-vicurrent"><a href="#" class="icon-pencil">Pencil</a></li> -->\n    <li>\n        <a href="#" class="icon icon-archive" rel="tooltip" data-placement="right" data-toggle="tooltip" title="My collection"></a>\n    </li>\n    <li>\n        <a href="#" class="icon-user" rel="tooltip" data-placement="right" data-toggle="tooltip" title="first tooltip">User</a>\n    </li>\n    \n</ul>';
+__p += '<ul class="cbp-vimenu">\n    <li>\n        <a href="#" class="icon icon-logo">Logo</a>\n    </li>\n    <li>\n        <a data-toggle="modal" href="#shareModal" rel="tooltip" class="icon-share-alt" data-placement="right" title="Share dialogue image" data-bypass></a>\n    </li>\n    <li>\n        <a href="search.html" class="icon-search" rel="tooltip" data-toggle="tooltip" data-placement="right" title="Search image" data-original-title="Tooltip on right"></a>\n    </li>\n    <li>\n        <a href="#" class="icon-picture" rel="tooltip" data-toggle="tooltip" data-placement="right" title="" data-original-title="Browse"></a>\n    </li>\n    <!-- <li class="cbp-vicurrent"><a href="#" class="icon-pencil">Pencil</a></li> -->\n    <li>\n        <a href="#" class="icon icon-archive" rel="tooltip" data-placement="right" data-toggle="tooltip" title="My collection"></a>\n    </li>\n    <li>\n        <a href="#" class="icon-user" rel="tooltip" data-placement="right" data-toggle="tooltip" title="first tooltip">User</a>\n    </li>\n    \n</ul>\n\n<!-- Modal -->\n<div class="modal fade" id="shareModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">\n<div class="modal-dialog">\n  <div class="modal-content">\n    <div class="modal-header">\n      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n      <h4 class="modal-title">Share dialogue image</h4>\n    </div>\n    <div class="modal-body">\n    <form role="form">\n      <div class="form-group">\n                <label for="shareImageURL">Image url</label>\n                <input type="text" class="form-control" id="shareImageURL" placeholder="http://example.com/image.jpg">\n\n                <label for="shareImageName">Image Name</label>\n                <input type="text" class="form-control" id="shareImageName" placeholder="圖片的對白">\n              </div>\n    </div>\n    </p>\n    <div class="modal-footer">\n      <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>\n      <button type="submit" class="btn btn-purple">Share</button>\n    </div>\n    </form>\n  </div><!-- /.modal-content -->\n</div><!-- /.modal-dialog -->\n</div><!-- /.modal -->';
 
 }
 return __p

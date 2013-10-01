@@ -6,59 +6,25 @@
     Routers: {},
     init: function() {
       'use strict';
-      var hotestList, hotestListView, navgitor, recentList, recentListView, searchList, searchPage, sessionModel, sidebar, signUpPanel;
+      var WebRouter;
       console.log('Hello from Backbone!');
-      sidebar = new this.Views.SidebarView({
-        el: $('#sidebar')
+      this.clipboard = new this.Views.ClipboardView();
+      WebRouter = new this.Routers.WebRouter();
+      Backbone.history.start({
+        pushState: true
       });
-      sidebar.render();
-      recentList = new this.Collections.PictureCollection([], {
-        url: '/api/recent'
+      return $(document).on("click", "a:not([data-bypass])", function(evt) {
+        var href, root;
+        href = {
+          prop: $(this).prop("href"),
+          attr: $(this).attr("href")
+        };
+        root = location.protocol + "//" + location.host;
+        if (href.prop && href.prop.slice(0, root.length) === root) {
+          evt.preventDefault();
+          return Backbone.history.navigate(href.attr, true);
+        }
       });
-      recentListView = new this.Views.PicturesView({
-        collection: recentList,
-        el: $('#recents-tpl'),
-        name: 'recents'
-      });
-      hotestList = new this.Collections.PictureCollection([], {
-        url: '/api/hotest'
-      });
-      hotestListView = new this.Views.PicturesView({
-        collection: hotestList,
-        el: $('#hotests-tpl'),
-        name: 'hotests'
-      });
-      recentListView.renderFrame();
-      hotestListView.renderFrame();
-      recentList.fetch({
-        reset: true
-      });
-      hotestList.fetch({
-        reset: true
-      });
-      sessionModel = new this.Models.SessionModel;
-      signUpPanel = new this.Views.SignupView({
-        model: sessionModel,
-        el: $('#signUpPanel')
-      });
-      if (sessionModel.auth()) {
-        signUpPanel.$el.hide();
-      } else {
-        signUpPanel.render();
-      }
-      navgitor = new this.Views.NavigatorView({
-        model: sessionModel,
-        el: $('#tobe-nav')
-      });
-      navgitor.render();
-      searchList = new this.Collections.SearchCollection([], {
-        url: '/api/search'
-      });
-      searchPage = new this.Views.SearchView({
-        collection: searchList,
-        el: $('#search-tpl')
-      });
-      return searchPage.renderFrame();
     }
   };
 

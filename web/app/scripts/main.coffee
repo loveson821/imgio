@@ -7,36 +7,24 @@ window.web =
     'use strict'
     console.log 'Hello from Backbone!'
 
-    sidebar = new @Views.SidebarView el: $('#sidebar')
-    sidebar.render()
+    @clipboard = new @Views.ClipboardView()
 
-    recentList = new @Collections.PictureCollection [], url: '/api/recent'
-    recentListView = new @Views.PicturesView collection: recentList, el: $('#recents-tpl'), name: 'recents'
+    WebRouter = new @Routers.WebRouter()
+    # WebRouter.start()
+    Backbone.history.start pushState: true
 
-    hotestList = new @Collections.PictureCollection [], url: '/api/hotest'
-    hotestListView = new @Views.PicturesView collection: hotestList, el: $('#hotests-tpl'), name: 'hotests'
+    $(document).on "click", "a:not([data-bypass])", (evt) ->
+      
+      href =
+        prop: $(this).prop("href")
+        attr: $(this).attr("href")
 
-    recentListView.renderFrame()
-    hotestListView.renderFrame()
+      root = location.protocol + "//" + location.host
+      if href.prop and href.prop.slice(0, root.length) is root
+        evt.preventDefault()
+        Backbone.history.navigate href.attr, true
+
     
-    recentList.fetch reset: yes
-    hotestList.fetch reset: yes
-
-    sessionModel = new @Models.SessionModel
-
-    signUpPanel = new @Views.SignupView model: sessionModel, el: $('#signUpPanel')
-    if sessionModel.auth()
-      signUpPanel.$el.hide()
-    else
-      signUpPanel.render()
-
-    navgitor = new @Views.NavigatorView model: sessionModel, el: $('#tobe-nav')
-    navgitor.render()
-
-
-    searchList = new @Collections.SearchCollection [], url: '/api/search'
-    searchPage = new @Views.SearchView collection: searchList, el: $('#search-tpl')
-    searchPage.renderFrame()
     
 
 $ ->
