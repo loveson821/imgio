@@ -5,6 +5,9 @@
 
 var mongoose = require('mongoose')
   , Schema = mongoose.Schema
+  , _ = require('underscore')
+  , env = process.env.NODE_ENV || 'development'
+  , config = require('../../config/config')[env]
 
 var PictureSchema = new Schema({
   name: { type: String, default: '' },
@@ -36,6 +39,12 @@ PictureSchema.pre('save', function(next) {
 })
 
 PictureSchema.statics = {
+
+  patchDomain: function(picture){
+    picture.shortlink = config.shortDomain+picture.shortlink
+    picture.permalink = config.domain + picture.permalink
+    return picture;
+  },
   
   search: function( query, options, cb){
     var ResultSet = this.find(query)
@@ -55,6 +64,15 @@ PictureSchema.statics = {
   fetch: function( word, options, cb){
     var searchRegex = new RegExp(word, 'i');
     var query = { name: { $regex: searchRegex } }
+    var update = { $inc: {"hit":1} }
+    this.findOneAndUpdate(query, update, {}, function(err, pic){
+      cb(err, pic)
+    });
+      
+  },
+
+  fetchShort: function( shortlink, options, cb){
+    var query = { shortlink: shortlink }
     var update = { $inc: {"hit":1} }
     this.findOneAndUpdate(query, update, {}, function(err, pic){
       cb(err, pic)
@@ -83,11 +101,13 @@ PictureSchema.statics = {
   },
 
   recent: function(options, cb){
+    var Model = this
     this.find().sort('-createdAt')
     .limit(options.perPage)
     .skip(options.perPage * options.page)
+    .lean()
     .exec( function(err, docs ){
-      cb(err,docs)
+      cb(err, _.map(docs, Model.patchDomain))
     })
   },
 
@@ -114,6 +134,6 @@ PictureSchema.statics = {
 
 }
 
-PictureSchema.index({"name":1, "permalink":1, "createdAt": -1, "activate": 1, "hit": -1})
+PictureSchema.index({"name":1, "shortlink": 1,"permalink":1, "createdAt": -1, "activate": 1, "hit": -1})
 
 mongoose.model('Picture', PictureSchema)

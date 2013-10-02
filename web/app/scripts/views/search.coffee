@@ -13,10 +13,11 @@ class web.Views.SearchView extends Backbone.View
 
 	render: ->
 		@collection.forEach @addOne, this
+		Grid.init()
 
 	addOne: (item)->
 		pictureView = new web.Views.PictureView model: item
-		$('#searchs').prepend pictureView.render().el
+		$('#searchs').append pictureView.render().el
 
 	loadMore: ->
 		this.collection.loadMore()

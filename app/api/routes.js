@@ -5,6 +5,7 @@ module.exports = function(app, passport) {
   // set api header
   app.get('/api/*',function(req,res,next){
     res.setHeader('content-type','text/json; charset=UTF-8');
+    res.setHeader("Access-Control-Allow-Origin", "*");
     next(); 
   });
   
@@ -22,8 +23,8 @@ module.exports = function(app, passport) {
   app.get('/api/hotest', pictures.hotest)
   app.get('/api/hub', pictures.hub)
 
-  app.get('/api/pictures/:picid', pictures.show)
-  app.post('/api/pictures'
+  app.get('/api/picture/:picid', pictures.show)
+  app.post('/api/picture'
           , normalization.picture.shorturl
           , normalization.picture.normalize
           , pictures.create

@@ -7,8 +7,8 @@ class web.Views.PicturesView extends Backbone.View
 	defaults:
 		name: null
 
-	events: 
-		'click .more': 'loadMore'
+	# events: 
+	# 'click .more': 'loadMore'
 
 	initialize: (models, options)->
 		@name = models.name

@@ -24,7 +24,8 @@
     };
 
     SearchView.prototype.render = function() {
-      return this.collection.forEach(this.addOne, this);
+      this.collection.forEach(this.addOne, this);
+      return Grid.init();
     };
 
     SearchView.prototype.addOne = function(item) {
@@ -32,7 +33,7 @@
       pictureView = new web.Views.PictureView({
         model: item
       });
-      return $('#searchs').prepend(pictureView.render().el);
+      return $('#searchs').append(pictureView.render().el);
     };
 
     SearchView.prototype.loadMore = function() {

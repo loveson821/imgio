@@ -236,20 +236,26 @@ var Grid = (function() {
 	function layoutItems()
 	{
 
-		var gridWidth = $grid.width(),
+		
+		// change each item width to new calculated width
+		$grid.each(function(){
+			var gridWidth = $(this).width(),
 			//get margin of items
 			itemMargin = parseInt($items.css("marginRight"), 10),
 			//calculate number of items if each items width is equal to preset width
 			numOfItems = Math.floor(gridWidth / (itemWidth + itemMargin)),
 			//calculate the width that fits the container
 			newItemWidth = Math.floor((gridWidth - numOfItems * itemMargin) / numOfItems) - 4;
-
-		//change each item width to new calculated width
-		$grid.each(function(){
 			$(this).children( 'li' ).each(function(){
-				$(this).css( "width", newItemWidth + "px");
+				
+				// $(this).css( "width", newItemWidth + "px");
+				this.style.width = newItemWidth + "px";
 			});
+			// $('ul.og-grid li').css('width', newItemWidth)
 		});
+		// console.log( gridWidth )
+		// console.log( newItemWidth )
+		// 
 
 	}
 

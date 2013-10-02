@@ -124,7 +124,9 @@ module.exports = function (app, passport) {
   app.get('/shortener', shortener.fetch)
 
   var pictures = require('../app/controllers/pictures')
-  app.get('/:word', pictures.fetch)
 
-  
+  app.get('/i/:shortlink', pictures.fetchShort)
+  app.get('/w/:word', pictures.fetch)
+
+
 }

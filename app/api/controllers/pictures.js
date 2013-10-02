@@ -21,7 +21,7 @@ exports.create = function(req, res){
   var picture = new Picture(_.pick(req.body,'name','path','shortlink'))
 
   picture.save(function(err, pic){
-    if(err) res.send({'success': false, 'error': err })
+    if(err) res.send({'success': false, 'errors': err })
     else{
       res.send({'success': true, doc: pic})
     }

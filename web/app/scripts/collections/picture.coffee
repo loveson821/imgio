@@ -10,7 +10,10 @@ class web.Collections.PictureCollection extends Backbone.Collection
   parse: (response)->
   	response
 
-  loadMore: ->
+  loadMore: (count)->
   	@page = @page + 1
   	@fetch reset: yes, data:
-  		page: @page
+  		page: @page, count: count
+
+
+

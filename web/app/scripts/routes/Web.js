@@ -14,7 +14,8 @@
 
     WebRouter.prototype.routes = {
       "": "index",
-      "featured": "featured"
+      "hotest": "hotest",
+      "recent": "recent"
     };
 
     WebRouter.prototype.initialize = function() {
@@ -42,6 +43,10 @@
         model: this.sessionModel,
         el: $('#signUpPanel')
       });
+      this.signinmodalView = new web.Views.SigninmodalView({
+        model: this.sessionModel,
+        el: $('#signInModal-tpl')
+      });
       this.navgitor = new web.Views.NavigatorView({
         model: this.sessionModel,
         el: $('#tobe-nav')
@@ -58,6 +63,7 @@
     WebRouter.prototype.always = function() {
       this.sidebar.render();
       this.navgitor.render();
+      this.signinmodalView.render();
       if (this.sessionModel.auth()) {
         this.signUpPanel.$el.hide();
       } else {
@@ -84,9 +90,12 @@
       });
     };
 
-    WebRouter.prototype.featured = function() {
-      this.navgitor.selectMenuItem('featured-menu');
-      return this.recentListView.clear();
+    WebRouter.prototype.hotest = function() {
+      return this.navgitor.loadHotestPageCore();
+    };
+
+    WebRouter.prototype.recent = function() {
+      return this.navgitor.loadRecentPageCore();
     };
 
     return WebRouter;

@@ -23,12 +23,13 @@
       return response;
     };
 
-    PictureCollection.prototype.loadMore = function() {
+    PictureCollection.prototype.loadMore = function(count) {
       this.page = this.page + 1;
       return this.fetch({
         reset: true,
         data: {
-          page: this.page
+          page: this.page,
+          count: count
         }
       });
     };

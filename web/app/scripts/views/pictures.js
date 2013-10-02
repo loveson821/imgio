@@ -18,10 +18,6 @@
       name: null
     };
 
-    PicturesView.prototype.events = {
-      'click .more': 'loadMore'
-    };
-
     PicturesView.prototype.initialize = function(models, options) {
       this.name = models.name;
       return this.collection.on('reset', this.render, this);

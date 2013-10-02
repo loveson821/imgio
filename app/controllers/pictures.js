@@ -34,3 +34,17 @@ exports.fetch = function(req, res){
   })
 }
 
+exports.fetchShort = function(req, res){
+  shortlink = req.params.shortlink || ''
+  shortlink = shortlink.replace(/\.(jpg|gif|png|jpeg)$/,'')
+  Picture.fetchShort(shortlink, {}, function(err, doc){
+    if(err || !doc){
+      res.send({'success': false})
+    }
+    else{
+      res.redirect( doc.path )
+    }
+      
+  })
+}
+

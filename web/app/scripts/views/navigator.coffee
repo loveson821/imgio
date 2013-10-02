@@ -3,7 +3,7 @@
 class web.Views.NavigatorView extends Backbone.View
 
 	template: JST['app/scripts/templates/navigator.ejs']
-
+	
 	alertTemplate = _.template(
 		"""
 		<div class="alert alert-danger"><%= name %>!! <%= type %></div>
@@ -15,20 +15,24 @@ class web.Views.NavigatorView extends Backbone.View
 		@model.on 'signin-success', @signInCallback, this
 		@model.on 'logout', @render, this
 
+		@recentList = new web.Collections.PictureCollection [], url: '/api/recent'
+		@recentView = new web.Views.RecentView collection: @recentList, el: $("#recents-one-tpl")
+		
+
+		@hotestList = new web.Collections.PictureCollection [], url: '/api/hotest'
+		@hotestView = new web.Views.HotestView collection: @hotestList, el: $('#hotests-one-tpl')
+		
+
 	events:
-		submit: 'signIn'
+		# 'submit #SignInModal': 'signIn'
 		'click a#logout': 'logout'
+		'click li.recent-menu': 'loadRecentPage'
+		'click li.hotest-menu': 'loadHotestPage'
 
 	render: ->
 		this.$el.html this.template( this.model.toJSON() )
 		return this
 
-	signIn: (e)->
-		e.preventDefault()
-		creds = {}
-		creds.email = $("#signIn-form input[type='email']").val()
-		creds.password = $("#signIn-form input[type='password']").val()
-		@model.signin creds
 
 	addAlertBlock: (key, type)->
 		$('#SignInModal').prepend alertTemplate( name: key, type: type )
@@ -44,3 +48,24 @@ class web.Views.NavigatorView extends Backbone.View
 	selectMenuItem: (menuItem) ->
 	    $(".nav li").removeClass "active"
 	    $("." + menuItem).addClass "active"  if menuItem
+
+	loadRecentPage: (e)->
+		e.preventDefault()
+		@loadRecentPageCore()
+
+	loadRecentPageCore: ->
+		@recentView.renderFrame()
+		@recentList.fetch reset: yes, data:{ count: 50}
+		$('#pt-button').trigger 'click', ['recent']
+
+
+	loadHotestPage: (e)->
+		e.preventDefault()
+		@loadHotestPageCore()
+
+	loadHotestPageCore: ->
+		@hotestView.renderFrame()
+		@hotestList.fetch reset: yes, data:{ count: 50}
+		$('#pt-button').trigger 'click', ['hotest']
+
+

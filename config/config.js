@@ -18,8 +18,10 @@ module.exports = {
     db: 'mongodb://localhost/imgio',
     root: rootPath,
     notifier: notifier,
+    shortDomain: 'http://i.inx.io/',
+    domain: 'http://inx.io/',
     app: {
-      name: 'Nodejs Express Mongoose Demo'
+      name: 'Dialogue image'
     },
     facebook: {
       clientID: "424193037611931",

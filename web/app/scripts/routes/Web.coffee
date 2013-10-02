@@ -3,7 +3,8 @@
 class web.Routers.WebRouter extends Backbone.Router
 	routes:
     "": "index",
-    "featured": "featured"
+    "hotest": "hotest",
+    "recent": "recent"
 
   initialize: ->
     @sidebar = new web.Views.SidebarView el: $('#sidebar')
@@ -16,8 +17,10 @@ class web.Routers.WebRouter extends Backbone.Router
 
     @sessionModel = new web.Models.SessionModel
     @signUpPanel = new web.Views.SignupView model: @sessionModel, el: $('#signUpPanel')
+    @signinmodalView = new web.Views.SigninmodalView model: @sessionModel, el: $('#signInModal-tpl')
 
     @navgitor = new web.Views.NavigatorView model: @sessionModel, el: $('#tobe-nav')
+
 
     @searchList = new web.Collections.SearchCollection [], url: '/api/search'
     @searchPage = new web.Views.SearchView collection: @searchList, el: $('#search-tpl')
@@ -25,6 +28,7 @@ class web.Routers.WebRouter extends Backbone.Router
   always: ->
     @sidebar.render()
     @navgitor.render()
+    @signinmodalView.render()
 
     if @sessionModel.auth()
       @signUpPanel.$el.hide()
@@ -35,7 +39,7 @@ class web.Routers.WebRouter extends Backbone.Router
 
   index: ->
     @always()
-
+    
     @recentListView.renderFrame()
     @hotestListView.renderFrame()
     
@@ -46,7 +50,16 @@ class web.Routers.WebRouter extends Backbone.Router
   start: ->
     Backbone.history.start pushState: true
 
-  featured: ->
-    @navgitor.selectMenuItem 'featured-menu'
-    @recentListView.clear()
+  hotest: ->
+    # @navgitor.selectMenuItem 'hotest-menu'
+
+    # @recentListView.clear()
+    # @hotestListView.renderFrame()
+    # @hotestList.fetch reset: yes
+    # $('.page-header').hide()
+    # @hotestListView.render()
+    @navgitor.loadHotestPageCore()
+
+  recent: ->
+    @navgitor.loadRecentPageCore()
     
