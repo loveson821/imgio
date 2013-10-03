@@ -28,7 +28,13 @@
         return client.setText(args.text);
       });
       this.clip.on('mousedown', function(client, args) {
-        return that.close();
+        that.close();
+        return new web.Views.AlertView({
+          alert: 'success',
+          fixed: true,
+          title: 'Copied!!',
+          message: 'Ctrl + v to paste'
+        }).flash();
       });
       this.clip.on('mouseover', function(client, args) {
         return $(this).find('.copy-overlay').css('opacity', '1');

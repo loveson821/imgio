@@ -47,7 +47,7 @@
     };
 
     RecentView.prototype.checkScroll = function() {
-      if ($(window).scrollTop() + $(window).height() > $(document).height() - 50) {
+      if ($(window).scrollTop() + $(window).height() > $(document).height() - 300) {
         this.unbindScrollbar();
         return this.loadMore();
       }
@@ -60,6 +60,10 @@
 
     RecentView.prototype.unbindScrollbar = function() {
       return $(window).unbind('scroll');
+    };
+
+    RecentView.prototype.clean = function() {
+      return this.$el.empty();
     };
 
     return RecentView;

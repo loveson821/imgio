@@ -45,5 +45,5 @@ class web.Views.AlertView extends Backbone.View
   flash: ->
     @prepare()
     that = this
-    @$el.delay(1000).addClass("in").fadeOut(4000)
+    @$el.delay(1000).addClass("in").fadeOut(2000)
 

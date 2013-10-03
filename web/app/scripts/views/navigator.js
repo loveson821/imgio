@@ -40,8 +40,9 @@
 
     NavigatorView.prototype.events = {
       'click a#logout': 'logout',
-      'click li.recent-menu': 'loadRecentPage',
-      'click li.hotest-menu': 'loadHotestPage'
+      'mouseover li.recent-menu': 'loadRecentPage',
+      'mouseover li.hotest-menu': 'loadHotestPage',
+      'mouseover li.home-menu': 'loadHomePage'
     };
 
     NavigatorView.prototype.render = function() {
@@ -73,9 +74,14 @@
       }
     };
 
+    NavigatorView.prototype.loadHomePage = function(e) {
+      e.preventDefault();
+      return this.selectMenuItem('home-menu');
+    };
+
     NavigatorView.prototype.loadRecentPage = function(e) {
       e.preventDefault();
-      return this.loadRecentPageCore();
+      return this.selectMenuItem('recent-menu');
     };
 
     NavigatorView.prototype.loadRecentPageCore = function() {
@@ -91,7 +97,7 @@
 
     NavigatorView.prototype.loadHotestPage = function(e) {
       e.preventDefault();
-      return this.loadHotestPageCore();
+      return this.selectMenuItem('hotest-menu');
     };
 
     NavigatorView.prototype.loadHotestPageCore = function() {
@@ -103,6 +109,11 @@
         }
       });
       return $('#pt-button').trigger('click', ['hotest']);
+    };
+
+    NavigatorView.prototype.clean = function() {
+      this.hotestView.clean();
+      return this.recentView.clean();
     };
 
     return NavigatorView;

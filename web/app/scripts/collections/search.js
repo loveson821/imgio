@@ -31,7 +31,7 @@
     };
 
     SearchCollection.prototype.findWord = function(word) {
-      this.setOptions(1, 20, word);
+      this.setOptions(1, 50, word);
       return this.fetch({
         reset: true,
         data: this.searchOption

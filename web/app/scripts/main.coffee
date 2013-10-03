@@ -9,7 +9,7 @@ window.web =
 
     @clipboard = new @Views.ClipboardView()
 
-    WebRouter = new @Routers.WebRouter()
+    @WebRouter = new @Routers.WebRouter()
     # WebRouter.start()
     Backbone.history.start pushState: true
 

@@ -34,12 +34,14 @@
 
     SidebarView.prototype.loadSearchPage = function(e) {
       e.preventDefault();
-      return this.ptButton.trigger('click', ['search']);
+      this.ptButton.trigger('click', ['search']);
+      return web.WebRouter.clean();
     };
 
     SidebarView.prototype.loadHomePage = function(e) {
       e.preventDefault();
-      return this.ptButton.trigger('click', ['home']);
+      this.ptButton.trigger('click', ['home']);
+      return web.WebRouter.clean();
     };
 
     SidebarView.prototype.shareImage = function(e) {

@@ -26,8 +26,10 @@ class web.Views.NavigatorView extends Backbone.View
 	events:
 		# 'submit #SignInModal': 'signIn'
 		'click a#logout': 'logout'
-		'click li.recent-menu': 'loadRecentPage'
-		'click li.hotest-menu': 'loadHotestPage'
+		'mouseover li.recent-menu': 'loadRecentPage'
+		'mouseover li.hotest-menu': 'loadHotestPage'
+		'mouseover li.home-menu': 'loadHomePage'
+
 
 	render: ->
 		this.$el.html this.template( this.model.toJSON() )
@@ -49,9 +51,14 @@ class web.Views.NavigatorView extends Backbone.View
 	    $(".nav li").removeClass "active"
 	    $("." + menuItem).addClass "active"  if menuItem
 
+	loadHomePage: (e)->
+		e.preventDefault()
+		@selectMenuItem 'home-menu'
+
 	loadRecentPage: (e)->
 		e.preventDefault()
-		@loadRecentPageCore()
+		@selectMenuItem 'recent-menu'
+		# @loadRecentPageCore()
 
 	loadRecentPageCore: ->
 		@recentView.renderFrame()
@@ -61,11 +68,16 @@ class web.Views.NavigatorView extends Backbone.View
 
 	loadHotestPage: (e)->
 		e.preventDefault()
-		@loadHotestPageCore()
+		@selectMenuItem 'hotest-menu'
+		# @loadHotestPageCore()
 
 	loadHotestPageCore: ->
 		@hotestView.renderFrame()
 		@hotestList.fetch reset: yes, data:{ count: 50}
 		$('#pt-button').trigger 'click', ['hotest']
+
+	clean: ->
+		@hotestView.clean()
+		@recentView.clean()
 
 

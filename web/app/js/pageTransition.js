@@ -45,6 +45,7 @@ var PageTransitions = (function() {
       
 			nextPage( animcursor, param );
 			// ++animcursor;
+
 		} );
 
 	}

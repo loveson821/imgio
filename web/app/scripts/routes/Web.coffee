@@ -27,7 +27,10 @@ class web.Routers.WebRouter extends Backbone.Router
     @searchList = new web.Collections.SearchCollection [], url: '/api/search'
     @searchPage = new web.Views.SearchView collection: @searchList, el: $('#search-tpl')
 
+    @tobeClean = [@searchPage, @navgitor]
+
   always: ->
+    
     @sidebar.render()
     @navgitor.render()
     @signinmodalView.render()
@@ -40,6 +43,7 @@ class web.Routers.WebRouter extends Backbone.Router
     @searchPage.renderFrame()
 
   index: ->
+
     @always()
     
     @recentListView.renderFrame()
@@ -48,13 +52,22 @@ class web.Routers.WebRouter extends Backbone.Router
     @recentList.fetch reset: yes
     @hotestList.fetch reset: yes
 
+    $(window).scrollTop 0
+
+    
 
   start: ->
     Backbone.history.start pushState: true
 
   hotest: ->
+    @clean()
     @navgitor.loadHotestPageCore()
 
   recent: ->
+    @clean()
     @navgitor.loadRecentPageCore()
+
+  clean: ->
+    _.each @tobeClean, (view)->
+      view.clean()
     

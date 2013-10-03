@@ -20,13 +20,19 @@
     };
 
     SearchView.prototype.initialize = function(models, options) {
-      return this.collection.on('reset', this.render, this);
+      this.collection.on('reset', this.render, this);
+      this.collection.on('more', this.appendMore, this);
+      return _.bindAll(this, 'checkScroll');
     };
 
     SearchView.prototype.render = function() {
-      $('#searchs').empty();
+      return this.appendMore();
+    };
+
+    SearchView.prototype.appendMore = function() {
       this.collection.forEach(this.addOne, this);
-      return Grid.init();
+      Grid.init();
+      return this.bindScrollbar();
     };
 
     SearchView.prototype.addOne = function(item) {
@@ -48,6 +54,27 @@
 
     SearchView.prototype.findWord = function() {
       return this.collection.findWord($('input#searchInput').val());
+    };
+
+    SearchView.prototype.checkScroll = function() {
+      if ($(window).scrollTop() + $(window).height() > $(document).height() - 300) {
+        this.unbindScrollbar();
+        this.loadMore();
+        return console.log('here');
+      }
+    };
+
+    SearchView.prototype.bindScrollbar = function() {
+      this.unbindScrollbar();
+      return $(window).scroll(this.checkScroll);
+    };
+
+    SearchView.prototype.unbindScrollbar = function() {
+      return $(window).unbind('scroll');
+    };
+
+    SearchView.prototype.clean = function() {
+      return $('#searchs').empty();
     };
 
     return SearchView;

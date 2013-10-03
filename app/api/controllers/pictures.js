@@ -19,6 +19,7 @@ exports.show = function(req, res){
 
 exports.create = function(req, res){
   var picture = new Picture(_.pick(req.body,'name','path','shortlink'))
+  picture.author = req.user
 
   picture.save(function(err, pic){
     if(err) res.send({'success': false, 'errors': err })

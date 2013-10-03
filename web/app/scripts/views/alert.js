@@ -65,7 +65,7 @@
       var that;
       this.prepare();
       that = this;
-      return this.$el.delay(1000).addClass("in").fadeOut(4000);
+      return this.$el.delay(1000).addClass("in").fadeOut(2000);
     };
 
     return AlertView;

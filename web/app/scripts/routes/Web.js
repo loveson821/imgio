@@ -55,10 +55,11 @@
       this.searchList = new web.Collections.SearchCollection([], {
         url: '/api/search'
       });
-      return this.searchPage = new web.Views.SearchView({
+      this.searchPage = new web.Views.SearchView({
         collection: this.searchList,
         el: $('#search-tpl')
       });
+      return this.tobeClean = [this.searchPage, this.navgitor];
     };
 
     WebRouter.prototype.always = function() {
@@ -80,9 +81,10 @@
       this.recentList.fetch({
         reset: true
       });
-      return this.hotestList.fetch({
+      this.hotestList.fetch({
         reset: true
       });
+      return $(window).scrollTop(0);
     };
 
     WebRouter.prototype.start = function() {
@@ -92,11 +94,19 @@
     };
 
     WebRouter.prototype.hotest = function() {
+      this.clean();
       return this.navgitor.loadHotestPageCore();
     };
 
     WebRouter.prototype.recent = function() {
+      this.clean();
       return this.navgitor.loadRecentPageCore();
+    };
+
+    WebRouter.prototype.clean = function() {
+      return _.each(this.tobeClean, function(view) {
+        return view.clean();
+      });
     };
 
     return WebRouter;

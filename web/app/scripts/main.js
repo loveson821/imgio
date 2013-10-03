@@ -6,10 +6,9 @@
     Routers: {},
     init: function() {
       'use strict';
-      var WebRouter;
       console.log('Hello from Backbone!');
       this.clipboard = new this.Views.ClipboardView();
-      WebRouter = new this.Routers.WebRouter();
+      this.WebRouter = new this.Routers.WebRouter();
       Backbone.history.start({
         pushState: true
       });

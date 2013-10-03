@@ -27,7 +27,7 @@ class web.Views.HotestView extends Backbone.View
 		return this
 
 	checkScroll: ->
-		if $(window).scrollTop() + $(window).height() > $(document).height() - 50
+		if $(window).scrollTop() + $(window).height() > $(document).height() - 300
 			@unbindScrollbar()
 			@loadMore()
 
@@ -38,3 +38,7 @@ class web.Views.HotestView extends Backbone.View
 
 	unbindScrollbar: ->
 		$(window).unbind 'scroll'
+
+	clean: ->
+		# $('#hotests-one').empty()
+		@$el.empty()

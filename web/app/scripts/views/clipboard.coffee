@@ -19,6 +19,12 @@ class web.Views.ClipboardView extends Backbone.View
 
 		@clip.on 'mousedown', (client, args)->
 			that.close()
+			new web.Views.AlertView(
+			  		alert: 'success'
+			  		fixed: true
+			  		title: 'Copied!!'
+			  		message: 'Ctrl + v to paste'
+			  	).flash()
 
 		@clip.on 'mouseover', (client, args)->
 			$(this).find('.copy-overlay').css('opacity','1')

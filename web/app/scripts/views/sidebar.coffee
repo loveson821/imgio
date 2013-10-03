@@ -20,10 +20,12 @@ class web.Views.SidebarView extends Backbone.View
 	loadSearchPage: (e)->
 		e.preventDefault()
 		@ptButton.trigger 'click', ['search']
+		web.WebRouter.clean()
 
 	loadHomePage: (e)->
 		e.preventDefault()
 		@ptButton.trigger 'click', ['home']
+		web.WebRouter.clean()
 
 	shareImage: (e)->
 		e.preventDefault()

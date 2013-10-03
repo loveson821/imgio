@@ -15,7 +15,7 @@ class web.Collections.SearchCollection extends Backbone.Collection
   		@searchOption
 
   findWord: (word)->
-  	@setOptions 1, 20, word
+  	@setOptions 1, 50, word
   	@fetch reset: yes, data:
   		@searchOption
 

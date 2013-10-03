@@ -10,11 +10,16 @@ class web.Views.SearchView extends Backbone.View
 
 	initialize: (models, options)->
 		@collection.on 'reset', @render, this
+		@collection.on 'more', @appendMore, this
+		_.bindAll @, 'checkScroll'
 
 	render: ->
-		$('#searchs').empty()
+		@appendMore()
+
+	appendMore: ->
 		@collection.forEach @addOne, this
 		Grid.init()
+		@bindScrollbar()
 
 	addOne: (item)->
 		pictureView = new web.Views.PictureView model: item
@@ -28,5 +33,22 @@ class web.Views.SearchView extends Backbone.View
 		return this
 
 	findWord: ->
-		# console.log $('input#searchInput').val()
 		@collection.findWord $('input#searchInput').val()
+
+	checkScroll: ->
+		if $(window).scrollTop() + $(window).height() > $(document).height() - 300
+			@unbindScrollbar()
+			@loadMore()
+			console.log 'here'
+
+
+	bindScrollbar: ->
+		@unbindScrollbar()
+		$(window).scroll @checkScroll
+
+	unbindScrollbar: ->
+		$(window).unbind 'scroll'
+
+	clean: ->
+		$('#searchs').empty()
+		# @$el.empty()

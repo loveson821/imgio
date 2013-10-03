@@ -63,7 +63,7 @@ obj || (obj = {});
 var __t, __p = '', __e = _.escape, __j = Array.prototype.join;
 function print() { __p += __j.call(arguments, '') }
 with (obj) {
-__p += '<nav class="navbar navbar-default  navbar-static-top" role="navigation">            \n\t<!-- Brand and toggle get grouped for better mobile display -->\n\t<div class="navbar-header">\n\t  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex8-collapse">\n\t    <span class="sr-only">Toggle navigation</span>\n\t    <span class="icon-bar"></span>\n\t    <span class="icon-bar"></span>\n\t    <span class="icon-bar"></span>\n\t  </button>\n\t</div>\n\n\t<!-- Collect the nav links, forms, and other content for toggling -->\n\t<div class="collapse navbar-collapse navbar-ex8-collapse">\n\t  <ul class="nav navbar-nav">\n\t    <li class="active"><a href="#">Home</a></li>\n\t    <li class="recent-menu"><a href="#recent" >Recent</a></li>\n\t    <li class="hotest-menu"><a href="#hotest" >Hotest</a></li>\n\t    \n\t  </ul>\n\t    <ul class="nav navbar-nav pull-right">\n\t    ';
+__p += '<nav class="navbar navbar-default  navbar-static-top" role="navigation">            \n\t<!-- Brand and toggle get grouped for better mobile display -->\n\t<div class="navbar-header">\n\t  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex8-collapse">\n\t    <span class="sr-only">Toggle navigation</span>\n\t    <span class="icon-bar"></span>\n\t    <span class="icon-bar"></span>\n\t    <span class="icon-bar"></span>\n\t  </button>\n\t</div>\n\n\t<!-- Collect the nav links, forms, and other content for toggling -->\n\t<div class="collapse navbar-collapse navbar-ex8-collapse">\n\t  <ul class="nav navbar-nav">\n\t    <li class="active home-menu"><a href="#">Home</a></li>\n\t    <li class="recent-menu"><a href="#recent" >Recent</a></li>\n\t    <li class="hotest-menu"><a href="#hotest" >Hotest</a></li>\n\t    \n\t  </ul>\n\t    <ul class="nav navbar-nav pull-right">\n\t    ';
  if(user){ ;
 __p += '\n\t\t\t<li><a href="#">' +
 ((__t = ( user.email )) == null ? '' : __t) +
@@ -95,7 +95,7 @@ __p += '<a href="' +
 ((__t = ( path )) == null ? '' : __t) +
 '"/>\n</a>\n<div class="title"><strong>' +
 ((__t = ( name )) == null ? '' : __t) +
-'</strong></div>\n<p class="muted detail">Upload by <span>ku4ncheang</span></p>';
+'</strong></div>\n<!-- <p class="muted detail">Upload by <span>ku4ncheang</span></p> -->';
 
 }
 return __p

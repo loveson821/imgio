@@ -47,7 +47,7 @@
     };
 
     HotestView.prototype.checkScroll = function() {
-      if ($(window).scrollTop() + $(window).height() > $(document).height() - 50) {
+      if ($(window).scrollTop() + $(window).height() > $(document).height() - 300) {
         this.unbindScrollbar();
         return this.loadMore();
       }
@@ -60,6 +60,10 @@
 
     HotestView.prototype.unbindScrollbar = function() {
       return $(window).unbind('scroll');
+    };
+
+    HotestView.prototype.clean = function() {
+      return this.$el.empty();
     };
 
     return HotestView;

@@ -29,7 +29,7 @@ class web.Views.RecentView extends Backbone.View
 		return this
 
 	checkScroll: ->
-		if $(window).scrollTop() + $(window).height() > $(document).height() - 50
+		if $(window).scrollTop() + $(window).height() > $(document).height() - 300
 			@unbindScrollbar()
 			@loadMore()
 
@@ -40,4 +40,8 @@ class web.Views.RecentView extends Backbone.View
 
 	unbindScrollbar: ->
 		$(window).unbind 'scroll'
+
+	clean: ->
+		# $('#recents-one').empty()
+		@$el.empty()
 
