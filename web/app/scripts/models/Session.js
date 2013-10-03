@@ -66,6 +66,21 @@
       });
     };
 
+    SessionModel.prototype.logout = function() {
+      var self;
+      self = this;
+      return $.ajax('/users/session', {
+        type: 'DELETE',
+        success: function(data, textStatus, jqXHR) {
+          $.removeCookie('user_info');
+          self.set({
+            user: null
+          });
+          return self.trigger('logout');
+        }
+      });
+    };
+
     SessionModel.prototype.setUserInfo = function(user_info) {
       $.cookie('user_info', user_info);
       return this.load();
@@ -82,14 +97,6 @@
         return true;
       }
       return false;
-    };
-
-    SessionModel.prototype.logout = function() {
-      $.removeCookie('user_info');
-      this.set({
-        user: null
-      });
-      return this.trigger('logout');
     };
 
     return SessionModel;

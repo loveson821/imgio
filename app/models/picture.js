@@ -16,7 +16,8 @@ var PictureSchema = new Schema({
   createdAt: { type: Date, default: Date.now },
   activate: { type: Boolean, default: false},
   path: { type: String, default: ''},
-  hit: { type: Number, default: 0}
+  hit: { type: Number, default: 0},
+  author: {type: Schema.ObjectId, ref: 'User'}
 })
 
 /**
@@ -47,6 +48,7 @@ PictureSchema.statics = {
   },
   
   search: function( query, options, cb){
+    var Model = this
     var ResultSet = this.find(query)
     ResultSet
       .sort({'createdAt': -1}) // sort by date
@@ -55,7 +57,7 @@ PictureSchema.statics = {
       // .select( 'path permalink shortlink name')
       .exec(function(err, docs){
         ResultSet.count(function(err2, count){
-          cb(err, docs, count, count > options.perPage*(options.page+1))
+          cb(err, _.map(docs, Model.patchDomain), count, count > options.perPage*(options.page+1))
         })
       });
       
@@ -92,11 +94,12 @@ PictureSchema.statics = {
   },
 
   hotest: function(options, cb){
+    var Model = this
     this.find().sort('-hit')
     .limit(options.perPage)
     .skip(options.perPage * options.page)
     .exec(function(err, docs){
-      cb(err, docs)
+      cb(err, _.map(docs, Model.patchDomain))
     })
   },
 

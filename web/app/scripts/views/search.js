@@ -24,6 +24,7 @@
     };
 
     SearchView.prototype.render = function() {
+      $('#searchs').empty();
       this.collection.forEach(this.addOne, this);
       return Grid.init();
     };

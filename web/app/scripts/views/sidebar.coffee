@@ -27,17 +27,27 @@ class web.Views.SidebarView extends Backbone.View
 
 	shareImage: (e)->
 		e.preventDefault()
-		body = {}
-		body.path = $("#shareImageURL").val()
-		body.name = $('#shareImageName').val()
-		@pictureModel = new web.Models.PictureModel if not @pictureModel
-
-		@pictureModel.save body,
-			success: (model, response, options)->
-				$('#shareModal').modal 'hide'
-				new web.Views.AlertView(
-			  		alert: 'success'
+		console.log @model.auth()
+		if not @model.auth()
+			$('#shareModal').modal 'hide'
+			new web.Views.AlertView(
+			  		alert: 'danger'
 			  		fixed: true
 			  		title: '!!'
-			  		message: 'Shared image '+body.name
+			  		message: 'Please login first'
 			  	).flash()
+		else
+			body = {}
+			body.path = $("#shareImageURL").val()
+			body.name = $('#shareImageName').val()
+			@pictureModel = new web.Models.PictureModel if not @pictureModel
+
+			@pictureModel.save body,
+				success: (model, response, options)->
+					$('#shareModal').modal 'hide'
+					new web.Views.AlertView(
+				  		alert: 'success'
+				  		fixed: true
+				  		title: '!!'
+				  		message: 'Shared image '+body.name
+				  	).flash()

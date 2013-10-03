@@ -19,7 +19,9 @@
     };
 
     WebRouter.prototype.initialize = function() {
+      this.sessionModel = new web.Models.SessionModel;
       this.sidebar = new web.Views.SidebarView({
+        model: this.sessionModel,
         el: $('#sidebar')
       });
       this.recentList = new web.Collections.PictureCollection([], {
@@ -38,7 +40,6 @@
         el: $('#hotests-tpl'),
         name: 'hotests'
       });
-      this.sessionModel = new web.Models.SessionModel;
       this.signUpPanel = new web.Views.SignupView({
         model: this.sessionModel,
         el: $('#signUpPanel')

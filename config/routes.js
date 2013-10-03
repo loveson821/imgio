@@ -52,6 +52,8 @@ module.exports = function (app, passport) {
     })(req, res, next);
   });
 
+  app.del('/users/session', users.logout);
+
   app.get('/users/:userId', users.show)
   app.get('/auth/facebook',
     passport.authenticate('facebook', {

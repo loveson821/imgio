@@ -23,7 +23,7 @@ module.exports = function (app, config, passport) {
 
   app.use(express.favicon())
   // app.use(express.static(config.root + '/public'))
-  app.use(express.static(config.root + '/web/dist'))
+  app.use(express.static(config.root + '/web/app'))
 
   // don't use logger for test env
   if (process.env.NODE_ENV !== 'test') {
@@ -103,10 +103,11 @@ module.exports = function (app, config, passport) {
 
     // assume 404 since no middleware responded
     app.use(function(req, res, next){
-      res.status(404).render('404', {
-        url: req.originalUrl,
-        error: 'Not found'
-      })
+      // res.status(404).render('404', {
+      //   url: req.originalUrl,
+      //   error: 'Not found'
+      // })
+      res.redirect('/')
     })
   })
 

@@ -45,23 +45,34 @@
     SidebarView.prototype.shareImage = function(e) {
       var body;
       e.preventDefault();
-      body = {};
-      body.path = $("#shareImageURL").val();
-      body.name = $('#shareImageName').val();
-      if (!this.pictureModel) {
-        this.pictureModel = new web.Models.PictureModel;
-      }
-      return this.pictureModel.save(body, {
-        success: function(model, response, options) {
-          $('#shareModal').modal('hide');
-          return new web.Views.AlertView({
-            alert: 'success',
-            fixed: true,
-            title: '!!',
-            message: 'Shared image ' + body.name
-          }).flash();
+      console.log(this.model.auth());
+      if (!this.model.auth()) {
+        $('#shareModal').modal('hide');
+        return new web.Views.AlertView({
+          alert: 'danger',
+          fixed: true,
+          title: '!!',
+          message: 'Please login first'
+        }).flash();
+      } else {
+        body = {};
+        body.path = $("#shareImageURL").val();
+        body.name = $('#shareImageName').val();
+        if (!this.pictureModel) {
+          this.pictureModel = new web.Models.PictureModel;
         }
-      });
+        return this.pictureModel.save(body, {
+          success: function(model, response, options) {
+            $('#shareModal').modal('hide');
+            return new web.Views.AlertView({
+              alert: 'success',
+              fixed: true,
+              title: '!!',
+              message: 'Shared image ' + body.name
+            }).flash();
+          }
+        });
+      }
     };
 
     return SidebarView;

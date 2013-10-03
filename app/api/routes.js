@@ -1,4 +1,5 @@
 var normalization = require('../../config/middlewares/normalization')
+  , auth = require('../../config/middlewares/authorization')
 
 module.exports = function(app, passport) {
   
@@ -25,9 +26,14 @@ module.exports = function(app, passport) {
 
   app.get('/api/picture/:picid', pictures.show)
   app.post('/api/picture'
+          , auth.requiresLogin
           , normalization.picture.shorturl
           , normalization.picture.normalize
           , pictures.create
           )
   app.param('picid', pictures.load)
+
+  app.get('/auth', auth.requiresLogin, function(req,res){
+    res.send('welcome good boy')
+  })
 }

@@ -12,6 +12,7 @@ class web.Views.SearchView extends Backbone.View
 		@collection.on 'reset', @render, this
 
 	render: ->
+		$('#searchs').empty()
 		@collection.forEach @addOne, this
 		Grid.init()
 

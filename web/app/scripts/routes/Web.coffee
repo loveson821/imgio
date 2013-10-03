@@ -2,12 +2,14 @@
 
 class web.Routers.WebRouter extends Backbone.Router
 	routes:
-    "": "index",
-    "hotest": "hotest",
-    "recent": "recent"
+        "": "index",
+        "hotest": "hotest",
+        "recent": "recent"
 
   initialize: ->
-    @sidebar = new web.Views.SidebarView el: $('#sidebar')
+    @sessionModel = new web.Models.SessionModel
+
+    @sidebar = new web.Views.SidebarView model: @sessionModel, el: $('#sidebar')
 
     @recentList = new web.Collections.PictureCollection [], url: '/api/recent'
     @recentListView = new web.Views.PicturesView collection: @recentList, el: $('#recents-tpl'), name: 'recents'
@@ -15,7 +17,7 @@ class web.Routers.WebRouter extends Backbone.Router
     @hotestList = new web.Collections.PictureCollection [], url: '/api/hotest'
     @hotestListView = new web.Views.PicturesView collection: @hotestList, el: $('#hotests-tpl'), name: 'hotests'
 
-    @sessionModel = new web.Models.SessionModel
+    
     @signUpPanel = new web.Views.SignupView model: @sessionModel, el: $('#signUpPanel')
     @signinmodalView = new web.Views.SigninmodalView model: @sessionModel, el: $('#signInModal-tpl')
 
@@ -51,13 +53,6 @@ class web.Routers.WebRouter extends Backbone.Router
     Backbone.history.start pushState: true
 
   hotest: ->
-    # @navgitor.selectMenuItem 'hotest-menu'
-
-    # @recentListView.clear()
-    # @hotestListView.renderFrame()
-    # @hotestList.fetch reset: yes
-    # $('.page-header').hide()
-    # @hotestListView.render()
     @navgitor.loadHotestPageCore()
 
   recent: ->
