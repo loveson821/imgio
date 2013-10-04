@@ -9,6 +9,18 @@ var express = require('express')
   , helpers = require('view-helpers')
   , pkg = require('../package.json')
 
+//logEntry
+var logentries = require('node-logentries');
+var log = logentries.logger({
+  token:'f448e7a6-a2fd-4cfc-b46a-c90a9042c810'
+});
+
+var logStream = {
+    write: function(message,encoding) {
+      log.info(message.replace('\n', ''));
+    }
+};
+
 module.exports = function (app, config, passport) {
 
   app.set('showStackError', true)
@@ -57,6 +69,11 @@ module.exports = function (app, config, passport) {
       })
     }))
 
+    // use logentry
+    app.use(express.logger({
+      format: ':remote-addr ":method :url HTTP/:http-version" ":user-agent" :status :res[content-length] :response-time ms', //The format you prefer. This is optional. Not setting this will output the standard log format  
+      stream: logStream }))
+    
     // use passport session
     app.use(passport.initialize())
     app.use(passport.session())

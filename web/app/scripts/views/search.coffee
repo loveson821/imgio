@@ -33,6 +33,7 @@ class web.Views.SearchView extends Backbone.View
 		return this
 
 	findWord: ->
+		@clean()
 		@collection.findWord $('input#searchInput').val()
 
 	checkScroll: ->

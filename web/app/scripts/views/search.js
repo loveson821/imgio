@@ -53,6 +53,7 @@
     };
 
     SearchView.prototype.findWord = function() {
+      this.clean();
       return this.collection.findWord($('input#searchInput').val());
     };
 
