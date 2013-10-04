@@ -6,6 +6,7 @@ class web.Views.SidebarView extends Backbone.View
 	events:
 		'click .icon-search': 'loadSearchPage'
 		'click .icon-logo': 'loadHomePage'
+		# 'click .icon-share-alt': 'preShareModal'
 		submit: 'shareImage'
 
 	initialize: ->
@@ -16,10 +17,20 @@ class web.Views.SidebarView extends Backbone.View
 
 	render: ->
 		this.$el.html this.template()
+		$("[rel='tooltip']").tooltip()
+
+	selectMenuItem: (menuItem) ->
+	    $("[rel='tooltip']").removeClass "active"
+	    $("." + menuItem).addClass "active"  if menuItem
+
+	# preShareModal: (e)->
+	# 	e.preventDefault()
+	# 	@selectMenuItem 'icon-share-alt'
 
 	loadSearchPage: (e)->
 		e.preventDefault()
 		@ptButton.trigger 'click', ['search']
+		@selectMenuItem 'icon-search'
 		web.WebRouter.clean()
 
 	loadHomePage: (e)->

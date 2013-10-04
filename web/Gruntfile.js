@@ -247,7 +247,8 @@ module.exports = function (grunt) {
                         '.htaccess',
                         'images/{,*/}*.{webp,gif}',
                         'font/*',
-                        'scripts/*.swf'
+                        'scripts/*.swf',
+                        'favicon.png'
                     ]
                 }]
             }

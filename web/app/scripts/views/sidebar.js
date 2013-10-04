@@ -29,12 +29,21 @@
     };
 
     SidebarView.prototype.render = function() {
-      return this.$el.html(this.template());
+      this.$el.html(this.template());
+      return $("[rel='tooltip']").tooltip();
+    };
+
+    SidebarView.prototype.selectMenuItem = function(menuItem) {
+      $("[rel='tooltip']").removeClass("active");
+      if (menuItem) {
+        return $("." + menuItem).addClass("active");
+      }
     };
 
     SidebarView.prototype.loadSearchPage = function(e) {
       e.preventDefault();
       this.ptButton.trigger('click', ['search']);
+      this.selectMenuItem('icon-search');
       return web.WebRouter.clean();
     };
 
