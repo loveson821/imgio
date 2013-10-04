@@ -1,6 +1,6 @@
 {
-  "name": "Dialogue Image",
-  "description": "Share image with dialogue",
+  "name": "nodejs-express-mongoose-demo",
+  "description": "A demo app illustrating the usage of express, mongoose, passportjs, jade and other modules in nodejs",
   "keywords": [
     "express",
     "mongoose",
