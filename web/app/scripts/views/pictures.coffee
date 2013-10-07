@@ -7,8 +7,22 @@ class web.Views.PicturesView extends Backbone.View
 	defaults:
 		name: null
 
-	# events: 
-	# 'click .more': 'loadMore'
+	events: 
+		'click #recent-more': 'loadRecentPage'
+		'click #hotest-more': 'loadHotestPage'
+ 
+	selectMenuItem: (menuItem) ->
+	    $("[rel='tooltip']").removeClass "active"
+	    $("." + menuItem).addClass "active"  if menuItem
+
+	loadRecentPage: (e)->
+		console.log "fuck"
+		@selectMenuItem 'icon-rocket'
+
+	loadHotestPage: (e)->
+		console.log "fuck"
+		@selectMenuItem 'icon-heart'
+		
 
 	initialize: (models, options)->
 		@name = models.name

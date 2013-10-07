@@ -1,5 +1,4 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
-/* line 5, component.sass */
 .cbp-vimenu {
   position: fixed;
   overflow: visible;
@@ -11,148 +10,111 @@
   padding: 0;
   background: #333333;
   z-index: 1000;
-  border-right: 1px solid rgba(0, 0, 0, 0.08);
-}
-/* line 18, component.sass */
-.cbp-vimenu li a {
-  text-decoration: none;
-  display: block;
-  text-indent: -500em;
-  height: 5em;
-  width: 5em;
-  line-height: 5em;
-  text-align: center;
-  color: white;
-  position: relative;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-  box-shadow: 0 1px 0px 0px #414141;
-  -webkit-transition: background 0.1s ease-in-out;
-  -moz-transition: background 0.1s ease-in-out;
-  transition: background 0.1s ease-in-out;
-}
-/* line 36, component.sass */
-.cbp-vimenu li a:hover {
-  background: #67377a;
-  color: white;
-}
-/* line 39, component.sass */
-.cbp-vimenu li a.active {
-  background: #67377a;
-  color: white;
-}
-/* line 43, component.sass */
-.cbp-vimenu li:first-child a {
-  background: #67377a;
-  color: white;
-}
-/* line 46, component.sass */
-.cbp-vimenu li.cbp-vicurrent a {
-  background: white;
-  color: #67377a;
-}
-/* line 50, component.sass */
-.cbp-vimenu li a:before {
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  text-indent: 0em;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  font-size: 1.4em;
-  -webkit-font-smoothing: antialiased;
-}
-/* line 62, component.sass */
-.cbp-vimenu li a.icon-logo:before {
-  content: "T";
-  font-weight: 700;
-  font-size: 300%;
-  font-family: "Lato", Calibri, Arial, sans-serif;
-}
+  border-right: 1px solid rgba(0, 0, 0, 0.08); }
+  .cbp-vimenu li a {
+    text-decoration: none;
+    display: block;
+    text-indent: -500em;
+    height: 5em;
+    width: 5em;
+    line-height: 5em;
+    text-align: center;
+    color: white;
+    position: relative;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    box-shadow: 0 1px 0px 0px #414141;
+    -webkit-transition: background 0.1s ease-in-out;
+    -moz-transition: background 0.1s ease-in-out;
+    transition: background 0.1s ease-in-out; }
+    .cbp-vimenu li a:hover {
+      background: #67377a;
+      color: white; }
+    .cbp-vimenu li a.active {
+      background: #67377a;
+      color: white; }
+  .cbp-vimenu li:first-child a {
+    background: #67377a;
+    color: white; }
+  .cbp-vimenu li.cbp-vicurrent a {
+    background: white;
+    color: #67377a; }
+  .cbp-vimenu li a:before {
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    text-indent: 0em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 1.4em;
+    -webkit-font-smoothing: antialiased; }
+  .cbp-vimenu li a.icon-logo:before {
+    content: "T";
+    font-weight: 700;
+    font-size: 300%;
+    font-family: "Lato", Calibri, Arial, sans-serif; }
 
 @media screen and (max-height: 34.9375em) {
-  /* line 70, component.sass */
   .cbp-vimenu {
-    font-size: 70%;
-  }
-}
-/* line 73, component.sass */
+    font-size: 70%; } }
 .og-grid {
   list-style: none;
-  padding: 0 0 20px 0;
+  padding: 0 0 30px 0;
   margin: 0 auto;
   text-align: left;
   letter-spacing: 0;
-  margin: 0 10px 0 20px;
-}
-/* line 81, component.sass */
-.og-grid li {
-  display: inline-block;
-  margin: 10px 10px 0 0;
-  vertical-align: top;
-  height: auto;
-}
-/* line 87, component.sass */
-.og-grid li .title {
-  color: #333333;
-  overflow: hidden;
-  max-height: 18px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  margin: 3px 0 2px 0;
-}
-/* line 95, component.sass */
-.og-grid li p {
-  font-size: 12px;
-  margin-bottom: 0;
-}
-/* line 99, component.sass */
-.og-grid li p span {
-  color: #67377a;
-}
-/* line 102, component.sass */
-.og-grid li > a {
-  border: none;
-  outline: none;
-  display: block;
-  position: relative;
-  height: 144px;
-  width: 100%;
-  padding: 3px;
-  border: 1px solid #dddddd;
-}
-/* line 112, component.sass */
-.og-grid li > a:hover {
-  padding: 3px;
-  border: 1px solid #b483c7;
-}
-/* line 116, component.sass */
-.og-grid li > a img {
-  border: none;
-  outline: none;
-  display: block;
-  position: relative;
-  height: 100%;
-  width: 100%;
-}
-/* line 125, component.sass */
-.og-grid li.og-expanded > a::after {
-  top: auto;
-  border: solid transparent;
-  content: " ";
-  height: 0;
-  width: 0;
-  position: absolute;
-  pointer-events: none;
-  border-bottom-color: #e3e3e3;
-  border-width: 15px;
-  left: 50%;
-  margin: 30px 0 0 -15px;
-}
+  margin: 0 10px 0 20px; }
+  .og-grid li {
+    display: inline-block;
+    margin: 20px 10px 0 0;
+    vertical-align: top;
+    height: auto; }
+    .og-grid li .title {
+      color: #333333;
+      overflow: hidden;
+      max-height: 18px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      margin: 3px 0 2px 0; }
+    .og-grid li p {
+      font-size: 12px;
+      margin-bottom: 0; }
+      .og-grid li p span {
+        color: #67377a; }
+    .og-grid li > a {
+      border: none;
+      outline: none;
+      display: block;
+      position: relative;
+      height: 144px;
+      width: 100%;
+      padding: 3px;
+      border: 1px solid #dddddd; }
+      .og-grid li > a:hover {
+        padding: 3px;
+        border: 1px solid #b483c7; }
+      .og-grid li > a img {
+        border: none;
+        outline: none;
+        display: block;
+        position: relative;
+        height: 100%;
+        width: 100%; }
+    .og-grid li.og-expanded > a::after {
+      top: auto;
+      border: solid transparent;
+      content: " ";
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+      border-bottom-color: #e3e3e3;
+      border-width: 15px;
+      left: 50%;
+      margin: 30px 0 0 -15px; }
 
-/* line 140, component.sass */
 .og-expander {
   position: absolute;
   background: #f3f3f3;
@@ -163,99 +125,75 @@
   text-align: left;
   height: 0;
   overflow: hidden;
-  border-bottom: 1px solid #cccccc;
-}
+  border-bottom: 1px solid #cccccc; }
 
-/* line 152, component.sass */
 .og-expander-inner {
-  height: 100%;
-}
+  height: 100%; }
 
-/* line 158, component.sass */
 .og-close {
   position: absolute;
   width: 40px;
   height: 40px;
   top: 20px;
   right: 20px;
-  cursor: pointer;
-}
-/* line 165, component.sass */
-.og-close::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  top: 50%;
-  height: 1px;
-  background: #999999;
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-/* line 175, component.sass */
-.og-close::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  top: 50%;
-  height: 1px;
-  background: #999999;
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  transform: rotate(45deg);
-  -webkit-transform: rotate(-45deg);
-  -moz-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-}
-/* line 189, component.sass */
-.og-close:hover::before, .og-close:hover::after {
-  background: #333333;
-}
+  cursor: pointer; }
+  .og-close::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    height: 1px;
+    background: #999999;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    transform: rotate(45deg); }
+  .og-close::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    height: 1px;
+    background: #999999;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    transform: rotate(45deg);
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    transform: rotate(-45deg); }
+  .og-close:hover::before, .og-close:hover::after {
+    background: #333333; }
 
-/* line 192, component.sass */
 .og-fullimg {
   width: 50%;
   float: left;
   height: 100%;
   overflow: hidden;
-  position: relative;
-}
+  position: relative; }
 
-/* line 199, component.sass */
 .og-details {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  position: relative;
-}
+  position: relative; }
 
-/* line 205, component.sass */
 .og-fullimg {
-  text-align: center;
-}
-/* line 207, component.sass */
-.og-fullimg img {
-  display: inline-block;
-  max-height: 100%;
-  max-width: 100%;
-}
+  text-align: center; }
+  .og-fullimg img {
+    display: inline-block;
+    max-height: 100%;
+    max-width: 100%; }
 
-/* line 213, component.sass */
 .og-details h3 {
   font-weight: 300;
   font-size: 52px;
   padding: 40px 0 10px;
   margin-bottom: 10px;
-  color: #333333;
-}
-/* line 219, component.sass */
+  color: #333333; }
 .og-details p {
   font-weight: 400;
   font-size: 16px;
   line-height: 22px;
-  color: #666666;
-}
-/* line 224, component.sass */
+  color: #666666; }
 .og-details a {
   font-weight: 700;
   font-size: 16px;
@@ -267,21 +205,15 @@
   display: inline-block;
   margin: 30px 0 0;
   outline: none;
-  text-decoration: none;
-}
-/* line 237, component.sass */
-.og-details a::before {
-  content: "\2192";
-  display: inline-block;
-  margin-right: 10px;
-}
-/* line 241, component.sass */
-.og-details a:hover {
-  background: #666666;
-  color: white;
-}
+  text-decoration: none; }
+  .og-details a::before {
+    content: "\2192";
+    display: inline-block;
+    margin-right: 10px; }
+  .og-details a:hover {
+    background: #666666;
+    color: white; }
 
-/* line 245, component.sass */
 .og-loading {
   width: 20px;
   height: 20px;
@@ -294,89 +226,55 @@
   margin: -25px 0 0 -25px;
   -webkit-animation: loader 0.5s infinite ease-in-out both;
   -moz-animation: loader 0.5s infinite ease-in-out both;
-  animation: loader 0.5s infinite ease-in-out both;
-}
+  animation: loader 0.5s infinite ease-in-out both; }
 
 @-webkit-keyframes loader {
-  /* line 260, component.sass */
   0% {
-    background: #dddddd;
-  }
+    background: #dddddd; }
 
-  /* line 262, component.sass */
   33% {
     background: #cccccc;
-    box-shadow: 0 0 1px #cccccc, 15px 30px 1px #cccccc, -15px 30px 1px #dddddd;
-  }
+    box-shadow: 0 0 1px #cccccc, 15px 30px 1px #cccccc, -15px 30px 1px #dddddd; }
 
-  /* line 265, component.sass */
   66% {
     background: #cccccc;
-    box-shadow: 0 0 1px #cccccc, 15px 30px 1px #dddddd, -15px 30px 1px #cccccc;
-  }
-}
+    box-shadow: 0 0 1px #cccccc, 15px 30px 1px #dddddd, -15px 30px 1px #cccccc; } }
 
 @-moz-keyframes loader {
-  /* line 271, component.sass */
   0% {
-    background: #dddddd;
-  }
+    background: #dddddd; }
 
-  /* line 273, component.sass */
   33% {
     background: #cccccc;
-    box-shadow: 0 0 1px #cccccc, 15px 30px 1px #cccccc, -15px 30px 1px #dddddd;
-  }
+    box-shadow: 0 0 1px #cccccc, 15px 30px 1px #cccccc, -15px 30px 1px #dddddd; }
 
-  /* line 276, component.sass */
   66% {
     background: #cccccc;
-    box-shadow: 0 0 1px #cccccc, 15px 30px 1px #dddddd, -15px 30px 1px #cccccc;
-  }
-}
+    box-shadow: 0 0 1px #cccccc, 15px 30px 1px #dddddd, -15px 30px 1px #cccccc; } }
 
 @keyframes loader {
-  /* line 282, component.sass */
   0% {
-    background: #dddddd;
-  }
+    background: #dddddd; }
 
-  /* line 284, component.sass */
   33% {
     background: #cccccc;
-    box-shadow: 0 0 1px #cccccc, 15px 30px 1px #cccccc, -15px 30px 1px #dddddd;
-  }
+    box-shadow: 0 0 1px #cccccc, 15px 30px 1px #cccccc, -15px 30px 1px #dddddd; }
 
-  /* line 287, component.sass */
   66% {
     background: #cccccc;
-    box-shadow: 0 0 1px #cccccc, 15px 30px 1px #dddddd, -15px 30px 1px #cccccc;
-  }
-}
+    box-shadow: 0 0 1px #cccccc, 15px 30px 1px #dddddd, -15px 30px 1px #cccccc; } }
 
 @media screen and (max-width: 830px) {
-  /* line 294, component.sass */
   .og-expander h3 {
-    font-size: 32px;
-  }
-  /* line 296, component.sass */
+    font-size: 32px; }
   .og-expander p {
-    font-size: 13px;
-  }
-  /* line 298, component.sass */
+    font-size: 13px; }
   .og-expander a {
-    font-size: 12px;
-  }
-}
+    font-size: 12px; } }
 @media screen and (max-width: 650px) {
-  /* line 302, component.sass */
   .og-fullimg {
-    display: none;
-  }
+    display: none; }
 
-  /* line 304, component.sass */
   .og-details {
     float: none;
-    width: 100%;
-  }
-}
+    width: 100%; } }
