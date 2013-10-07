@@ -65,7 +65,7 @@ PictureSchema.statics = {
   
   fetch: function( word, options, cb){
     var searchRegex = new RegExp(word, 'i');
-    var query = { name: { $regex: searchRegex } }
+    var query = { permalink: { $regex: searchRegex } }
     var update = { $inc: {"hit":1} }
     this.findOneAndUpdate(query, update, {}, function(err, pic){
       cb(err, pic)
