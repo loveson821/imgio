@@ -16,11 +16,9 @@ class web.Views.PicturesView extends Backbone.View
 	    $("." + menuItem).addClass "active"  if menuItem
 
 	loadRecentPage: (e)->
-		console.log "fuck"
 		@selectMenuItem 'icon-rocket'
 
 	loadHotestPage: (e)->
-		console.log "fuck"
 		@selectMenuItem 'icon-heart'
 		
 

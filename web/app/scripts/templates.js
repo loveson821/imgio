@@ -52,7 +52,7 @@ this["JST"]["app/scripts/templates/hotest.ejs"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div class="bar">\n\t<h3>常用的對白圖</h3>\n</div>\n<div>\n\t<ul id="hotests-one" class="og-grid clearfix picturelist"></ul>\n</div>\n\n<footer role="contentinfo" class="text-center">\n    <nav role="navigation">\n        <ul>\n            <li><a href="#">Blog</a></li>\n            <li><a href="#">InSight</a></li>\n            <li><a href="#">Contact</a></li>\n        </ul>\n    </nav>      \n    <p>Copyright © 2013 <a href="http://fridaycreation.com/">Friday Creation Ltd.</a> All rights reserved.</p>\n</footer>           ';
+__p += '<div class="bar">\n\t<h3>常用的對白圖</h3>\n</div>\n<div>\n\t<ul id="hotests-one" class="og-grid clearfix picturelist"></ul>\n</div>\n\n<footer role="contentinfo" class="text-center">\n    <nav role="navigation">\n        <ul>\n            <li><a href="http://fridaycreation.com">Contact Us</a></li>\n        </ul>\n    </nav>      \n    <p>Copyright © 2013 <a href="http://fridaycreation.com">Friday Creation Ltd. </a>All rights reserved.</p>\n</footer>       ';
 
 }
 return __p
@@ -122,7 +122,7 @@ this["JST"]["app/scripts/templates/recent.ejs"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div class="bar">\n\t<h3>最新的對白圖</h3>\n</div>\n<div>\n\t<ul id="recents-one" class="og-grid clearfix picturelist"></ul>\n</div>\n\n<footer role="contentinfo" class="text-center">\n    <nav role="navigation">\n        <ul>\n            <li><a href="#">Blog</a></li>\n            <li><a href="#">InSight</a></li>\n            <li><a href="#">Contact</a></li>\n        </ul>\n    </nav>      \n    <p>Copyright © 2013 <a href="http://fridaycreation.com/">Friday Creation Ltd.</a> All rights reserved.</p>\n</footer>           ';
+__p += '<div class="bar">\n\t<h3>最新的對白圖</h3>\n</div>\n<div>\n\t<ul id="recents-one" class="og-grid clearfix picturelist"></ul>\n</div>\n\n<footer role="contentinfo" class="text-center">\n    <nav role="navigation">\n        <ul>\n            <li><a href="http://fridaycreation.com">Contact Us</a></li>\n        </ul>\n    </nav>      \n    <p>Copyright © 2013 <a href="http://fridaycreation.com">Friday Creation Ltd. </a>All rights reserved.</p>\n</footer>    ';
 
 }
 return __p
@@ -132,7 +132,7 @@ this["JST"]["app/scripts/templates/search.ejs"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div class="bar">\n    <input class="form-control text-center" type="text" id="searchInput" placeholder="輸入要搜索的對白">\n</div>\n\n<div>\n    <ul id="searchs" class="og-grid clearfix picturelist"></ul>\n</div>\n\n<footer role="contentinfo" class="text-center">\n    <nav role="navigation">\n        <ul>\n            <li><a href="#">Blog</a></li>\n            <li><a href="#">Contact</a></li>\n        </ul>\n    </nav>      \n    <p>Copyright © 2013 <a href="http://fridaycreation.com/">Friday Creation Ltd.</a> All rights reserved.</p>\n</footer>           ';
+__p += '<div class="bar">\n    <input class="form-control text-center" type="text" id="searchInput" placeholder="輸入要搜索的對白">\n</div>\n\n<div>\n    <ul id="searchs" class="og-grid clearfix picturelist"></ul>\n</div>\n\n<footer role="contentinfo" class="text-center">\n    <nav role="navigation">\n        <ul>\n            <li><a href="http://fridaycreation.com">Contact Us</a></li>\n        </ul>\n    </nav>      \n    <p>Copyright © 2013 <a href="http://fridaycreation.com">Friday Creation Ltd. </a>All rights reserved.</p>\n</footer>          ';
 
 }
 return __p
@@ -152,7 +152,7 @@ this["JST"]["app/scripts/templates/signUp.ejs"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div class="col-md-4 register">\n  <h3>登記成為會員 <span>一起分享圖片網址<span></h3>\n  <form role="form">\n    <div class="form-group">\n      <input type="username" class="form-control" id="username" placeholder="Username">\n      <input type="email" class="form-control" id="email" placeholder="Email">\n      <input type="password" class="form-control" id="password" placeholder="Password">\n      <input type="password" class="form-control" id="password-confirm" placeholder="Password Again">\n    </div>\n    <div class="divider">\n    </div>\n    <button type="submit" class="btn btn-purple btn-block">立即登記</button>\n  </form>\n</div>\n<div class="col-md-8">\n  <div class="row">\n    <div class="col-md-6 text-center extension">\n      <a href="https://dl.dropboxusercontent.com/u/19548288/DialogueImage.safariextz" class="clearfix">\n        <img src="images/safari-icon.png" width="180" height="180">\n        <p>\n          Safari Extension<br/>\n          <strong>download</strong>\n        </p>\n      </a>\n    </div>\n    <div class="col-md-6 text-center extension">\n      <a href="https://chrome.google.com/webstore/detail/dialogueimage/hihciiaokoaabhjgimhcjdocaenifcca" class="">\n        <img src="images/chrome-icon.png" width="180" height="180">\n        <p>\n          Chrome Extension<br/>\n          <strong>download</strong>\n        </p>\n      </a>\n    </div>\n  </div>\n</div>\n\n';
+__p += '<div class="col-md-4 register">\n  <h3>登記成為會員 <span>一起分享對白圖片<span></h3>\n  <form role="form">\n    <div class="form-group">\n      <input type="username" class="form-control" id="username" placeholder="Username">\n      <input type="email" class="form-control" id="email" placeholder="Email">\n      <input type="password" class="form-control" id="password" placeholder="Password">\n      <input type="password" class="form-control" id="password-confirm" placeholder="Password Again">\n    </div>\n    <div class="divider">\n    </div>\n    <button type="submit" class="btn btn-purple btn-block">立即登記</button>\n  </form>\n</div>\n<div class="col-md-8">\n  <div class="row">\n    <div class="col-md-6 text-center extension">\n      <a href="https://dl.dropboxusercontent.com/u/19548288/DialogueImage.safariextz" class="clearfix">\n        <img src="images/safari-icon.png" width="180" height="180">\n        <p>\n          Safari Extension<br/>\n          <strong>download</strong>\n        </p>\n      </a>\n    </div>\n    <div class="col-md-6 text-center extension">\n      <a href="https://chrome.google.com/webstore/detail/dialogueimage/hihciiaokoaabhjgimhcjdocaenifcca" class="">\n        <img src="images/chrome-icon.png" width="180" height="180">\n        <p>\n          Chrome Extension<br/>\n          <strong>download</strong>\n        </p>\n      </a>\n    </div>\n  </div>\n</div>\n\n';
 
 }
 return __p

@@ -34,6 +34,7 @@ class web.Views.SidebarView extends Backbone.View
 		@ptButton.trigger 'click', ['search']
 		@selectMenuItem 'icon-search'
 		web.WebRouter.clean()
+		$('input#searchInput').focus()
 
 	loadHomePage: (e)->
 		e.preventDefault()

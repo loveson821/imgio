@@ -31,12 +31,10 @@
     };
 
     PicturesView.prototype.loadRecentPage = function(e) {
-      console.log("fuck");
       return this.selectMenuItem('icon-rocket');
     };
 
     PicturesView.prototype.loadHotestPage = function(e) {
-      console.log("fuck");
       return this.selectMenuItem('icon-heart');
     };
 

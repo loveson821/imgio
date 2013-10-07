@@ -21,6 +21,7 @@ class web.Views.SearchView extends Backbone.View
 		Grid.init()
 		@bindScrollbar()
 
+
 	addOne: (item)->
 		pictureView = new web.Views.PictureView model: item
 		$('#searchs').append pictureView.render().el

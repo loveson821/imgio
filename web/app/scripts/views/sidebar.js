@@ -46,7 +46,8 @@
       e.preventDefault();
       this.ptButton.trigger('click', ['search']);
       this.selectMenuItem('icon-search');
-      return web.WebRouter.clean();
+      web.WebRouter.clean();
+      return $('input#searchInput').focus();
     };
 
     SidebarView.prototype.loadHomePage = function(e) {
