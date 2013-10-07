@@ -3,10 +3,16 @@
         <a href="#" class="icon icon-logo">Logo</a>
     </li>
     <li>
-        <a data-toggle="modal" href="#shareModal" rel="tooltip" class="icon-share-alt" data-placement="right" title="Share dialogue image" data-bypass></a>
+        <a data-toggle="modal" href="#shareModal" rel="tooltip" class="icon-cloud-upload" data-placement="right" title="分享圖片" data-original-title="分享圖片" data-bypass></a>
     </li>
     <li>
-        <a href="#search" class="icon-search" rel="tooltip" data-toggle="tooltip" data-placement="right" title="Search image" data-original-title="Tooltip on right"></a>
+        <a data-toggle="modal" href="#recent" rel="tooltip" class="icon-rocket" data-placement="right" title="最新的對白圖" data-original-title="最新的對白圖"></a>
+    </li>
+    <li>
+        <a data-toggle="modal" href="#hotest" rel="tooltip" class="icon-heart" data-placement="right" title="常用的對白圖" data-original-title="常用的對白圖"></a>
+    </li>
+    <li>
+        <a href="#search" class="icon-search" rel="tooltip" data-toggle="tooltip" data-placement="right" title="快速搜索" data-original-title="快速搜索"></a>
     </li>
     <!-- <li>
         <a href="#" class="icon-picture" rel="tooltip" data-toggle="tooltip" data-placement="right" title="" data-original-title="Browse"></a>
@@ -26,22 +32,22 @@
   <div class="modal-content">
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-      <h4 class="modal-title">Share dialogue image</h4>
+      <h4 class="modal-title">分享你的對白圖片</h4>
     </div>
     <div class="modal-body">
     <form role="form">
       <div class="form-group">
-                <label for="shareImageURL">Image url</label>
+                <label for="shareImageURL">對白圖片網址</label>
                 <input type="text" class="form-control" id="shareImageURL" placeholder="http://example.com/image.jpg">
 
-                <label for="shareImageName">Image Name</label>
+                <label for="shareImageName">相對應的對白</label>
                 <input type="text" class="form-control" id="shareImageName" placeholder="圖片的對白">
               </div>
     </div>
     </p>
     <div class="modal-footer">
-      <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-      <button type="submit" class="btn btn-purple">Share</button>
+      <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+      <button type="submit" class="btn btn-purple">分享</button>
     </div>
     </form>
   </div><!-- /.modal-content -->

@@ -17,6 +17,8 @@
     SidebarView.prototype.events = {
       'click .icon-search': 'loadSearchPage',
       'click .icon-logo': 'loadHomePage',
+      'click .icon-heart': 'loadHotestPage',
+      'click .icon-rocket': 'loadRecentPage',
       submit: 'shareImage'
     };
 
@@ -50,6 +52,20 @@
     SidebarView.prototype.loadHomePage = function(e) {
       e.preventDefault();
       this.ptButton.trigger('click', ['home']);
+      return web.WebRouter.clean();
+    };
+
+    SidebarView.prototype.loadRecentPage = function(e) {
+      e.preventDefault();
+      this.ptButton.trigger('click', ['recent']);
+      this.selectMenuItem('icon-rocket');
+      return web.WebRouter.clean();
+    };
+
+    SidebarView.prototype.loadHotestPage = function(e) {
+      e.preventDefault();
+      this.ptButton.trigger('click', ['hotest']);
+      this.selectMenuItem('icon-heart');
       return web.WebRouter.clean();
     };
 

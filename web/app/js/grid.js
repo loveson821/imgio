@@ -214,11 +214,11 @@ var Grid = (function() {
 		$grid.imagesLoaded( function() {
 
 			// save item´s size and offset
-			saveItemInfo( true );
+			// saveItemInfo( true );
 			// get window´s size
-			getWinSize();
+			// getWinSize();
 			// initialize some events
-			initEvents();
+			// initEvents();
 
 		} );
 
@@ -245,7 +245,7 @@ var Grid = (function() {
 			//calculate number of items if each items width is equal to preset width
 			numOfItems = Math.floor(gridWidth / (itemWidth + itemMargin)),
 			//calculate the width that fits the container
-			newItemWidth = Math.floor((gridWidth - numOfItems * itemMargin) / numOfItems) - 4;
+			newItemWidth = Math.floor((gridWidth - numOfItems * itemMargin) / numOfItems);
 			$(this).children( 'li' ).each(function(){
 				
 				// $(this).css( "width", newItemWidth + "px");
