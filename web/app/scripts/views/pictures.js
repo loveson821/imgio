@@ -18,6 +18,28 @@
       name: null
     };
 
+    PicturesView.prototype.events = {
+      'click #recent-more': 'loadRecentPage',
+      'click #hotest-more': 'loadHotestPage'
+    };
+
+    PicturesView.prototype.selectMenuItem = function(menuItem) {
+      $("[rel='tooltip']").removeClass("active");
+      if (menuItem) {
+        return $("." + menuItem).addClass("active");
+      }
+    };
+
+    PicturesView.prototype.loadRecentPage = function(e) {
+      console.log("fuck");
+      return this.selectMenuItem('icon-rocket');
+    };
+
+    PicturesView.prototype.loadHotestPage = function(e) {
+      console.log("fuck");
+      return this.selectMenuItem('icon-heart');
+    };
+
     PicturesView.prototype.initialize = function(models, options) {
       this.name = models.name;
       return this.collection.on('reset', this.render, this);

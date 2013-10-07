@@ -6,6 +6,8 @@ class web.Views.SidebarView extends Backbone.View
 	events:
 		'click .icon-search': 'loadSearchPage'
 		'click .icon-logo': 'loadHomePage'
+		'click .icon-heart': 'loadHotestPage'
+		'click .icon-rocket': 'loadRecentPage'
 		# 'click .icon-share-alt': 'preShareModal'
 		submit: 'shareImage'
 
@@ -36,6 +38,18 @@ class web.Views.SidebarView extends Backbone.View
 	loadHomePage: (e)->
 		e.preventDefault()
 		@ptButton.trigger 'click', ['home']
+		web.WebRouter.clean()
+
+	loadRecentPage: (e)->
+		e.preventDefault()
+		@ptButton.trigger 'click', ['recent']
+		@selectMenuItem 'icon-rocket'
+		web.WebRouter.clean()
+
+	loadHotestPage: (e)->
+		e.preventDefault()
+		@ptButton.trigger 'click', ['hotest']
+		@selectMenuItem 'icon-heart'
 		web.WebRouter.clean()
 
 	shareImage: (e)->

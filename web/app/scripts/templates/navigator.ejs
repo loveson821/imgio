@@ -12,17 +12,17 @@
 	<!-- Collect the nav links, forms, and other content for toggling -->
 	<div class="collapse navbar-collapse navbar-ex8-collapse">
 	  <ul class="nav navbar-nav">
-	    <li class="active home-menu"><a href="#">Home</a></li>
-	    <li class="recent-menu"><a href="#recent" >Recent</a></li>
-	    <li class="hotest-menu"><a href="#hotest" >Hotest</a></li>
+	    <li class="active home-menu"><a href="#">主頁</a></li>
+	    <li class="recent-menu"><a href="#recent" >最新的對白圖</a></li>
+	    <li class="hotest-menu"><a href="#hotest" >常用的對白圖</a></li>
 	    
 	  </ul>
 	    <ul class="nav navbar-nav pull-right">
 	    <% if(user){ %>
 			<li><a href="#"><%= user.email %></a></li>
-			<li><a href="#" id="logout">Logout</a></li>
+			<li><a href="#" id="logout">登出</a></li>
 		<% }else{ %>
-	    	<li><a data-toggle="modal" href="#SignInModal" data-bypass>Sign In</a></li>
+	    	<li><a data-toggle="modal" href="#SignInModal" data-bypass>登入</a></li>
 	    <% }%>
 	  </ul>
 	</div><!-- /.navbar-collapse -->
