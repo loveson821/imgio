@@ -29,6 +29,11 @@ class web.Routers.WebRouter extends Backbone.Router
 
     @tobeClean = [@searchPage, @navgitor]
 
+    # adminPanel render here
+    if @sessionModel.isAdmin()
+      @adminPanel = new web.Views.AdminpanelView collection: @searchList, el: $('#adminSearch-tpl')
+      @tobeClean.push @adminPanel
+
   always: ->
     
     @sidebar.render()
@@ -42,11 +47,10 @@ class web.Routers.WebRouter extends Backbone.Router
 
     @searchPage.renderFrame()
 
-    # adminPanel render here
     if @sessionModel.isAdmin()
-      @adminPanel = new web.Views.AdminpanelView collection: @searchList, el: $('#adminSearch-tpl')
       @adminPanel.renderFrame()
-      @tobeClean.push @adminPanel
+
+    
 
   index: ->
 

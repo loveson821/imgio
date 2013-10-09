@@ -1,0 +1,24 @@
+<a href="<%= pic.path %>" data-largesrc="<%= pic.path %>" data-title="<%= pic.name %>" data-description="<%= pic.permalink %>" data-clipboard-text="<%= pic.path %>">
+	<img src="<%= pic.path %>"/>
+</a>
+<div class="title"><strong><%= pic.name %></strong></div>
+
+<% var display = _.pick(pic, 'name','path','shortlink','permalink') %>
+<form class="form-horizontal">
+<fieldset>
+
+
+<div class="control-group">
+	<% _.each(display, function(value, key){ %>
+	  <label class="control-label" for="<%= key %>"><%= key %></label>
+	  <div class="controls">
+	    <input name="<%= key %>" type="text" placeholder="" class="input-xlarge" value="<%= value %>" />
+	  </div>
+	<% }); %>
+</div>
+
+</fieldset>
+	<button type="button" class="btn btn-info" >Save</button>
+	<button type="button" class="btn btn-danger" >Delete</button>
+</form>
+

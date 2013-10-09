@@ -10,6 +10,45 @@ __p += '<div class="bar">\n    <input class="form-control text-center" type="tex
 return __p
 };
 
+this["JST"]["app/scripts/templates/adminPicture.ejs"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape, __j = Array.prototype.join;
+function print() { __p += __j.call(arguments, '') }
+with (obj) {
+__p += '<a href="' +
+((__t = ( pic.path )) == null ? '' : __t) +
+'" data-largesrc="' +
+((__t = ( pic.path )) == null ? '' : __t) +
+'" data-title="' +
+((__t = ( pic.name )) == null ? '' : __t) +
+'" data-description="' +
+((__t = ( pic.permalink )) == null ? '' : __t) +
+'" data-clipboard-text="' +
+((__t = ( pic.path )) == null ? '' : __t) +
+'">\n\t<img src="' +
+((__t = ( pic.path )) == null ? '' : __t) +
+'"/>\n</a>\n<div class="title"><strong>' +
+((__t = ( pic.name )) == null ? '' : __t) +
+'</strong></div>\n\n';
+ var display = _.pick(pic, 'name','path','shortlink','permalink') ;
+__p += '\n<form class="form-horizontal">\n<fieldset>\n\n\n<div class="control-group">\n\t';
+ _.each(display, function(value, key){ ;
+__p += '\n\t  <label class="control-label" for="' +
+((__t = ( key )) == null ? '' : __t) +
+'">' +
+((__t = ( key )) == null ? '' : __t) +
+'</label>\n\t  <div class="controls">\n\t    <input name="' +
+((__t = ( key )) == null ? '' : __t) +
+'" type="text" placeholder="" class="input-xlarge" value="' +
+((__t = ( value )) == null ? '' : __t) +
+'" />\n\t  </div>\n\t';
+ }); ;
+__p += '\n</div>\n\n</fieldset>\n\t<button type="button" class="btn btn-info" >Save</button>\n\t<button type="button" class="btn btn-danger" >Delete</button>\n</form>\n\n';
+
+}
+return __p
+};
+
 this["JST"]["app/scripts/templates/alert.ejs"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
@@ -154,7 +193,7 @@ var __t, __p = '', __e = _.escape, __j = Array.prototype.join;
 function print() { __p += __j.call(arguments, '') }
 with (obj) {
 __p += '<ul class="cbp-vimenu">\n    <li>\n        <a href="#" class="icon icon-logo">Logo</a>\n    </li>\n    <li>\n        <a data-toggle="modal" href="#shareModal" rel="tooltip" class="icon-cloud-upload" data-placement="right" title="分享圖片" data-original-title="分享圖片" data-bypass></a>\n    </li>\n    <li>\n        <a data-toggle="modal" href="#recent" rel="tooltip" class="icon-rocket" data-placement="right" title="最新的對白圖" data-original-title="最新的對白圖"></a>\n    </li>\n    <li>\n        <a data-toggle="modal" href="#hotest" rel="tooltip" class="icon-heart" data-placement="right" title="常用的對白圖" data-original-title="常用的對白圖"></a>\n    </li>\n    <li>\n        <a href="#search" class="icon-search" rel="tooltip" data-toggle="tooltip" data-placement="right" title="快速搜索" data-original-title="快速搜索"></a>\n    </li>\n    ';
- if( user.role && user.role == "admin" ){ ;
+ if( user && user.role && user.role == "admin" ){ ;
 __p += '\n    <li>\n        <a href="#adminPanel" class="icon-wrench" rel="tooltip" data-toggle="tooltip" data-placement="right" title="管理你媽" data-original-title="管理他媽"></a>\n    </li>\n    ';
  } ;
 __p += '\n    <!-- <li>\n        <a href="#" class="icon-picture" rel="tooltip" data-toggle="tooltip" data-placement="right" title="" data-original-title="Browse"></a>\n    </li>\n    <li>\n        <a href="#" class="icon icon-archive" rel="tooltip" data-placement="right" data-toggle="tooltip" title="My collection"></a>\n    </li>\n    <li>\n        <a href="#" class="icon-user" rel="tooltip" data-placement="right" data-toggle="tooltip" title="first tooltip">User</a>\n    </li> -->\n    \n</ul>\n\n<!-- Modal -->\n<div class="modal fade" id="shareModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">\n<div class="modal-dialog">\n  <div class="modal-content">\n    <div class="modal-header">\n      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n      <h4 class="modal-title">分享你的對白圖片</h4>\n    </div>\n    <div class="modal-body">\n    <form role="form">\n      <div class="form-group">\n                <label for="shareImageURL">對白圖片網址</label>\n                <input type="text" class="form-control" id="shareImageURL" placeholder="http://example.com/image.jpg">\n\n                <label for="shareImageName">相對應的對白</label>\n                <input type="text" class="form-control" id="shareImageName" placeholder="圖片的對白">\n              </div>\n    </div>\n    </p>\n    <div class="modal-footer">\n      <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>\n      <button type="submit" class="btn btn-purple">分享</button>\n    </div>\n    </form>\n  </div><!-- /.modal-content -->\n</div><!-- /.modal-dialog -->\n</div><!-- /.modal -->';

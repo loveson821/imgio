@@ -29,6 +29,28 @@ exports.create = function(req, res){
   })
 }
 
+exports.update = function(req, res){
+  var picture = req.picture
+  picture = _.extend(picture, req.body)
+
+  picture.save(function(err, pic){
+    if(err) res.send({'success': false, 'errors': err })
+    else{
+      res.send({'success': true, doc: pic})
+    }
+  })
+}
+
+exports.destroy = function(req, res){
+  var picture = req.picture
+  picture.remove(function(err){
+    if(err) res.send({'success': false, 'errors': err })
+    else{
+      res.send({'success': true})
+    }
+  })
+}
+
 exports.search = function(req, res){
   var word = req.param('word') || ''
   var query = {}

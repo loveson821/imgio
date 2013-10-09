@@ -59,7 +59,14 @@
         collection: this.searchList,
         el: $('#search-tpl')
       });
-      return this.tobeClean = [this.searchPage, this.navgitor];
+      this.tobeClean = [this.searchPage, this.navgitor];
+      if (this.sessionModel.isAdmin()) {
+        this.adminPanel = new web.Views.AdminpanelView({
+          collection: this.searchList,
+          el: $('#adminSearch-tpl')
+        });
+        return this.tobeClean.push(this.adminPanel);
+      }
     };
 
     WebRouter.prototype.always = function() {
@@ -73,12 +80,7 @@
       }
       this.searchPage.renderFrame();
       if (this.sessionModel.isAdmin()) {
-        this.adminPanel = new web.Views.AdminpanelView({
-          collection: this.searchList,
-          el: $('#adminSearch-tpl')
-        });
-        this.adminPanel.renderFrame();
-        return this.tobeClean.push(this.adminPanel);
+        return this.adminPanel.renderFrame();
       }
     };
 

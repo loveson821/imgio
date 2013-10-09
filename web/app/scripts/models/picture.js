@@ -14,6 +14,8 @@
 
     PictureModel.prototype.urlRoot = '/api/picture';
 
+    PictureModel.prototype.idAttribute = "_id";
+
     return PictureModel;
 
   })(Backbone.Model);

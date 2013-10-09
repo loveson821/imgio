@@ -1,6 +1,7 @@
 'use strict';
 
 class web.Views.AdminpanelView extends Backbone.View
+
 	template: JST['app/scripts/templates/adminPanel.ejs']
 
 	events: 
@@ -22,7 +23,7 @@ class web.Views.AdminpanelView extends Backbone.View
 
 
 	addOne: (item)->
-		pictureView = new web.Views.PictureView model: item
+		pictureView = new web.Views.AdminpictureView model: item
 		$('#adminSearch').append pictureView.render().el
 
 	loadMore: ->

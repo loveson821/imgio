@@ -52,4 +52,3 @@ class web.Views.SearchView extends Backbone.View
 
 	clean: ->
 		$('#searchs').empty()
-		# @$el.empty()

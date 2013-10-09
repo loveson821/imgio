@@ -31,6 +31,14 @@ module.exports = function(app, passport) {
           , normalization.picture.normalize
           , pictures.create
           )
+  app.put('/api/picture/:picid'
+          , auth.requiresLogin
+          , pictures.update
+          )
+  app.del('/api/picture/:picid'
+          , auth.requiresLogin
+          , pictures.destroy
+          )
   app.param('picid', pictures.load)
 
   app.get('/auth', auth.requiresLogin, function(req,res){

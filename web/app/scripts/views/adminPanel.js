@@ -37,7 +37,7 @@
 
     AdminpanelView.prototype.addOne = function(item) {
       var pictureView;
-      pictureView = new web.Views.PictureView({
+      pictureView = new web.Views.AdminpictureView({
         model: item
       });
       return $('#adminSearch').append(pictureView.render().el);

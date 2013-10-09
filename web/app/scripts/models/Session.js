@@ -100,7 +100,7 @@
     };
 
     SessionModel.prototype.isAdmin = function() {
-      if (this.get('user').role === 'admin') {
+      if (this.get('user') && this.get('user').role === 'admin') {
         return true;
       }
       return false;
