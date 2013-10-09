@@ -19,6 +19,7 @@
       'click .icon-logo': 'loadHomePage',
       'click .icon-heart': 'loadHotestPage',
       'click .icon-rocket': 'loadRecentPage',
+      'click .icon-wrench': 'loadAdminPanel',
       submit: 'shareImage'
     };
 
@@ -31,7 +32,7 @@
     };
 
     SidebarView.prototype.render = function() {
-      this.$el.html(this.template());
+      this.$el.html(this.template(this.model.toJSON()));
       return $("[rel='tooltip']").tooltip();
     };
 
@@ -68,6 +69,14 @@
       this.ptButton.trigger('click', ['hotest']);
       this.selectMenuItem('icon-heart');
       return web.WebRouter.clean();
+    };
+
+    SidebarView.prototype.loadAdminPanel = function(e) {
+      e.preventDefault();
+      this.ptButton.trigger('click', ['admin']);
+      this.selectMenuItem('icon-wrench');
+      web.WebRouter.clean();
+      return $('input#adminSearchInput').focus();
     };
 
     SidebarView.prototype.shareImage = function(e) {

@@ -1,12 +1,11 @@
 'use strict';
 
-class web.Views.SearchView extends Backbone.View
-
-	template: JST['app/scripts/templates/search.ejs']
+class web.Views.AdminpanelView extends Backbone.View
+	template: JST['app/scripts/templates/adminPanel.ejs']
 
 	events: 
 		'click .more': 'loadMore'
-		'change input#searchInput': 'findWord'
+		'change input#adminSearchInput': 'findWord'
 
 	initialize: (models, options)->
 		@collection.on 'reset', @render, this
@@ -24,7 +23,7 @@ class web.Views.SearchView extends Backbone.View
 
 	addOne: (item)->
 		pictureView = new web.Views.PictureView model: item
-		$('#searchs').append pictureView.render().el
+		$('#adminSearch').append pictureView.render().el
 
 	loadMore: ->
 		this.collection.loadMore()
@@ -35,7 +34,7 @@ class web.Views.SearchView extends Backbone.View
 
 	findWord: ->
 		@clean()
-		@collection.findWord $('input#searchInput').val()
+		@collection.findWord $('input#adminSearchInput').val()
 
 	checkScroll: ->
 		if $(window).scrollTop() + $(window).height() > $(document).height() - 300
@@ -51,5 +50,4 @@ class web.Views.SearchView extends Backbone.View
 		$(window).unbind 'scroll'
 
 	clean: ->
-		$('#searchs').empty()
-		# @$el.empty()
+		$('#adminSearch').empty()

@@ -71,7 +71,15 @@
       } else {
         this.signUpPanel.render();
       }
-      return this.searchPage.renderFrame();
+      this.searchPage.renderFrame();
+      if (this.sessionModel.isAdmin()) {
+        this.adminPanel = new web.Views.AdminpanelView({
+          collection: this.searchList,
+          el: $('#adminSearch-tpl')
+        });
+        this.adminPanel.renderFrame();
+        return this.tobeClean.push(this.adminPanel);
+      }
     };
 
     WebRouter.prototype.index = function() {

@@ -4,80 +4,80 @@
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  web.Views.SearchView = (function(_super) {
-    __extends(SearchView, _super);
+  web.Views.AdminpanelView = (function(_super) {
+    __extends(AdminpanelView, _super);
 
-    function SearchView() {
-      _ref = SearchView.__super__.constructor.apply(this, arguments);
+    function AdminpanelView() {
+      _ref = AdminpanelView.__super__.constructor.apply(this, arguments);
       return _ref;
     }
 
-    SearchView.prototype.template = JST['app/scripts/templates/search.ejs'];
+    AdminpanelView.prototype.template = JST['app/scripts/templates/adminPanel.ejs'];
 
-    SearchView.prototype.events = {
+    AdminpanelView.prototype.events = {
       'click .more': 'loadMore',
-      'change input#searchInput': 'findWord'
+      'change input#adminSearchInput': 'findWord'
     };
 
-    SearchView.prototype.initialize = function(models, options) {
+    AdminpanelView.prototype.initialize = function(models, options) {
       this.collection.on('reset', this.render, this);
       this.collection.on('more', this.appendMore, this);
       return _.bindAll(this, 'checkScroll');
     };
 
-    SearchView.prototype.render = function() {
+    AdminpanelView.prototype.render = function() {
       return this.appendMore();
     };
 
-    SearchView.prototype.appendMore = function() {
+    AdminpanelView.prototype.appendMore = function() {
       this.collection.forEach(this.addOne, this);
       Grid.init();
       return this.bindScrollbar();
     };
 
-    SearchView.prototype.addOne = function(item) {
+    AdminpanelView.prototype.addOne = function(item) {
       var pictureView;
       pictureView = new web.Views.PictureView({
         model: item
       });
-      return $('#searchs').append(pictureView.render().el);
+      return $('#adminSearch').append(pictureView.render().el);
     };
 
-    SearchView.prototype.loadMore = function() {
+    AdminpanelView.prototype.loadMore = function() {
       return this.collection.loadMore();
     };
 
-    SearchView.prototype.renderFrame = function() {
+    AdminpanelView.prototype.renderFrame = function() {
       this.$el.html(this.template());
       return this;
     };
 
-    SearchView.prototype.findWord = function() {
+    AdminpanelView.prototype.findWord = function() {
       this.clean();
-      return this.collection.findWord($('input#searchInput').val());
+      return this.collection.findWord($('input#adminSearchInput').val());
     };
 
-    SearchView.prototype.checkScroll = function() {
+    AdminpanelView.prototype.checkScroll = function() {
       if ($(window).scrollTop() + $(window).height() > $(document).height() - 300) {
         this.unbindScrollbar();
         return this.loadMore();
       }
     };
 
-    SearchView.prototype.bindScrollbar = function() {
+    AdminpanelView.prototype.bindScrollbar = function() {
       this.unbindScrollbar();
       return $(window).scroll(this.checkScroll);
     };
 
-    SearchView.prototype.unbindScrollbar = function() {
+    AdminpanelView.prototype.unbindScrollbar = function() {
       return $(window).unbind('scroll');
     };
 
-    SearchView.prototype.clean = function() {
-      return $('#searchs').empty();
+    AdminpanelView.prototype.clean = function() {
+      return $('#adminSearch').empty();
     };
 
-    return SearchView;
+    return AdminpanelView;
 
   })(Backbone.View);
 

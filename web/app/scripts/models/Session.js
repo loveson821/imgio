@@ -99,6 +99,13 @@
       return false;
     };
 
+    SessionModel.prototype.isAdmin = function() {
+      if (this.get('user').role === 'admin') {
+        return true;
+      }
+      return false;
+    };
+
     return SessionModel;
 
   })(Backbone.Model);

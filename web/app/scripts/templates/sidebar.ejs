@@ -14,6 +14,11 @@
     <li>
         <a href="#search" class="icon-search" rel="tooltip" data-toggle="tooltip" data-placement="right" title="快速搜索" data-original-title="快速搜索"></a>
     </li>
+    <% if( user.role && user.role == "admin" ){ %>
+    <li>
+        <a href="#adminPanel" class="icon-wrench" rel="tooltip" data-toggle="tooltip" data-placement="right" title="管理你媽" data-original-title="管理他媽"></a>
+    </li>
+    <% } %>
     <!-- <li>
         <a href="#" class="icon-picture" rel="tooltip" data-toggle="tooltip" data-placement="right" title="" data-original-title="Browse"></a>
     </li>

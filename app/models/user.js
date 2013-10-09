@@ -21,6 +21,7 @@ var UserSchema = new Schema({
   hashed_password: { type: String, default: '' },
   salt: { type: String, default: '' },
   authToken: { type: String, default: '' },
+  role: { type: String, default: 'free'},
   facebook: {},
   twitter: {},
   github: {},

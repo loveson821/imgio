@@ -8,6 +8,7 @@ class web.Views.SidebarView extends Backbone.View
 		'click .icon-logo': 'loadHomePage'
 		'click .icon-heart': 'loadHotestPage'
 		'click .icon-rocket': 'loadRecentPage'
+		'click .icon-wrench': 'loadAdminPanel'
 		# 'click .icon-share-alt': 'preShareModal'
 		submit: 'shareImage'
 
@@ -18,7 +19,7 @@ class web.Views.SidebarView extends Backbone.View
 		@pictureModel = null
 
 	render: ->
-		this.$el.html this.template()
+		this.$el.html this.template(@model.toJSON())
 		$("[rel='tooltip']").tooltip()
 
 	selectMenuItem: (menuItem) ->
@@ -52,6 +53,13 @@ class web.Views.SidebarView extends Backbone.View
 		@ptButton.trigger 'click', ['hotest']
 		@selectMenuItem 'icon-heart'
 		web.WebRouter.clean()
+
+	loadAdminPanel: (e)->
+		e.preventDefault()
+		@ptButton.trigger 'click', ['admin']
+		@selectMenuItem 'icon-wrench'
+		web.WebRouter.clean()
+		$('input#adminSearchInput').focus()
 
 	shareImage: (e)->
 		e.preventDefault()

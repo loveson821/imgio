@@ -60,4 +60,8 @@ class web.Models.SessionModel extends Backbone.Model
     return yes if @get('user')
     no
 
+  isAdmin: ->
+    return yes if @get('user').role == 'admin'
+    no
+
   
