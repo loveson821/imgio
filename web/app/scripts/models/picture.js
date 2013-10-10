@@ -16,6 +16,16 @@
 
     PictureModel.prototype.idAttribute = "_id";
 
+    PictureModel.prototype.getBasename = function(name) {
+      return name.replace(/^.*\/|\.[^.]*$/g, '');
+    };
+
+    PictureModel.prototype.cutDomain = function(data) {
+      data.shortlink = this.getBasename(data.shortlink);
+      data.permalink = this.getBasename(data.permalink);
+      return data;
+    };
+
     return PictureModel;
 
   })(Backbone.Model);

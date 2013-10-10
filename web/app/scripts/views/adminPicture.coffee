@@ -11,7 +11,8 @@ class web.Views.AdminpictureView extends Backbone.View
 
 	render: ->
 		that = this
-		attributes = @model.toJSON()
+
+		attributes = @model.cutDomain @model.toJSON()
 		this.$el.html this.template({pic: attributes})
 
 		return this
@@ -25,7 +26,6 @@ class web.Views.AdminpictureView extends Backbone.View
 		e.preventDefault()
 		# alert @model.toJSON().permalink
 		# alert @$el.find('form input[name="permalink"]').val()
-		console.log @model
 		@model.save {},
 		    success: (model, response) ->
 		      alert('success')

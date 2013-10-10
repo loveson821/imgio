@@ -25,7 +25,7 @@
     AdminpictureView.prototype.render = function() {
       var attributes, that;
       that = this;
-      attributes = this.model.toJSON();
+      attributes = this.model.cutDomain(this.model.toJSON());
       this.$el.html(this.template({
         pic: attributes
       }));
@@ -41,7 +41,6 @@
 
     AdminpictureView.prototype.save = function(e) {
       e.preventDefault();
-      console.log(this.model);
       return this.model.save({}, {
         success: function(model, response) {
           return alert('success');
