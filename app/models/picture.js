@@ -39,7 +39,17 @@ PictureSchema.pre('save', function(next) {
   })
 })
 
+PictureSchema.methods = {
+  cutDomain: function(){
+    this.shortlink = this.shortlink.replace(/^.*\/|\.[^.]*$/g, '')
+    this.permalink = this.permalink.replace(/^.*\/|\.[^.]*$/g, '')
+    return this;
+  }
+}
+
 PictureSchema.statics = {
+
+  
 
   patchDomain: function(picture){
     picture.shortlink = config.shortDomain+picture.shortlink

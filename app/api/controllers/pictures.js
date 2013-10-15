@@ -32,6 +32,7 @@ exports.create = function(req, res){
 exports.update = function(req, res){
   var picture = req.picture
   picture = _.extend(picture, req.body)
+  picture.cutDomain()
 
   picture.save(function(err, pic){
     if(err) res.send({'success': false, 'errors': err })
