@@ -23,6 +23,13 @@
     PictureModel.prototype.cutDomain = function(data) {
       data.shortlink = this.getBasename(data.shortlink);
       data.permalink = this.getBasename(data.permalink);
+      this.set({
+        shortlink: data.shortlink
+      });
+      this.set({
+        permalink: data.permalink
+      });
+      console.log(this.toJSON());
       return data;
     };
 
